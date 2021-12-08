@@ -42,8 +42,8 @@
             <td><?=$row["deskripsi"]; ?></td>
             <td><?=$row["foto"]; ?></td>
             <td>
-                <a href="detailproduk.php?id_produk=<?= $row['id_produk']?>">Beli</a>
-                <a href="" onclick="return confirm('Hapus item ke keranjang?')">Hapus</a>
+                <a href="detailproduk.php?id_produk=<?= $row['id_produk'];?>">Beli</a>
+                <a href="hapuskeranjang.php?id_keranjang=<?= $row['id_keranjang'];?>" onclick="return confirm('Hapus item ke keranjang?')">Hapus</a>
             </td>
         </tr>
         <?php $i++; endforeach; ?>
