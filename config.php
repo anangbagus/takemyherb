@@ -11,6 +11,20 @@ function query($query){
     return $rows;
 }
 
+function hapususer($id){
+    global $koneksi;
+    mysqli_query($koneksi, "DELETE FROM user WHERE id_user = '$id'");
+    return mysqli_affected_rows($koneksi);
+}
+
+function cariuser($keyword){
+    $query = "SELECT * FROM user 
+                WHERE id_user LIKE '%$keyword%' OR
+                nama_user LIKE '%$keyword%' OR
+                email LIKE '%$keyword%'";
+    return query($query);
+}
+
 function hapusproduk($id){
     global $koneksi;
     mysqli_query($koneksi, "DELETE FROM produk WHERE id_produk = '$id'");
