@@ -73,7 +73,7 @@
             <td><?=$row["tipe"]; ?></td>
             <td>
                 <a href="">Beli</a> |
-                <a href="" onclick="return confirm('Masukkan item ke keranjang?')">Tambah Keranjang</a>
+                <a href="addkeranjang.php?id_produk=<?= $row['id_produk'];?>" onclick="return confirm('Masukkan item ke keranjang?')">Tambah Keranjang</a>
             </td>
         </tr>
         <?php endforeach; ?>
