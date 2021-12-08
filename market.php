@@ -43,8 +43,6 @@
     </form>
     <br> 
 
-    <br>
-    <a href="addproduk.php">Tambah Data Produk</a>
     <br> <br>
 
     <!-- menampilkan table -->
