@@ -47,7 +47,7 @@
         <tr>
             <td>Phone</td>
             <td>:</td>
-            <td><?= $row['phone_number'];?></td>
+            <td><?= $row['hp'];?></td>
         </tr>
         <tr>
             <td></td>
