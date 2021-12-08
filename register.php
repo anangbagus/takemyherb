@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
         $sql = "SELECT * FROM users WHERE email='$email'";
         $result = mysqli_query($koneksi, $sql);
         if (!$result->num_rows > 0) {
-            $sql = "INSERT INTO user (`user_id`, `nama_user`, `email`, `username`, `password`, `phone_number`)
+            $sql = "INSERT INTO user (`id_user`, `nama_user`, `email`, `username`, `password`, `hp`)
                     VALUES ('', '$name', '$email', '$username', '$password', '$phone')";
             $result = mysqli_query($koneksi, $sql);
             if ($result) {
