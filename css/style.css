@@ -1,0 +1,22 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+
+.bg-red {
+    background-color: red;
+    height: 200px;
+}
+
+.bg-blue {
+    background-color: blue;
+    height: 200px;
+}
+
+.bg-yellow {
+    background-color: rgb(255, 208, 0);
+    height: 200px;
+}
