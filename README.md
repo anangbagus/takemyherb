@@ -1,3 +1,3 @@
 # takemyherb
 
-aku ngetest aja ya
+Sebuah e-commerce for herbs.
