@@ -19,7 +19,7 @@ foreach ($users as $user):
     $id_user = $user['id_user'];
 endforeach;
 
-$query = "INSERT INTO keranjang VALUES ('', NOW(), '$id_user', '$id_produk')";
+$query = "INSERT INTO keranjang VALUES ('', NOW(), '$id_user', '$id_produk', '1')";
 mysqli_query($koneksi, $query);
 
 //cek apakah data berhasil ditambahkan atau tidak

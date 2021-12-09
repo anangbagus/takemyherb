@@ -70,7 +70,6 @@
             <td><?=$row["foto"]; ?></td>
             <td><?=$row["tipe"]; ?></td>
             <td>
-                <a href="">Beli</a> |
                 <a href="addkeranjang.php?id_produk=<?= $row['id_produk'];?>" onclick="return confirm('Masukkan item ke keranjang?')">Tambah Keranjang</a>
             </td>
         </tr>

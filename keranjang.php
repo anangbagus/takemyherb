@@ -10,7 +10,7 @@
     };
 
     $username = $_SESSION['username'];
-    $keranjang = query("SELECT k.*, u.username, p.* FROM keranjang k INNER JOIN user u ON k.id_user = u.id_user INNER JOIN produk p ON k.id_produk = p.id_produk WHERE u.username = '$username'")
+    $keranjang = query("SELECT k.*, u.username, p.* FROM keranjang k INNER JOIN user u ON k.id_user = u.id_user INNER JOIN produk p ON k.id_produk = p.id_produk WHERE u.username = '$username'");
 ?>
 
 <!DOCTYPE html>
@@ -19,6 +19,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Keranjang</title>
 </head>
 <body>
@@ -32,22 +33,28 @@
             <th>Harga</th>
             <th>Deskripsi</th>
             <th>Foto</th>
+            <th>Jumlah</th>
             <th>Aksi</th>
         </tr>
         <?php $i = 1; foreach($keranjang as $row) : ?>
         <tr>
-            <td><?php echo $i; ?></td>
-            <td><?=$row["nama_produk"]; ?></td>
-            <td><?=$row["harga"]; ?></td>
-            <td><?=$row["deskripsi"]; ?></td>
-            <td><?=$row["foto"]; ?></td>
-            <td>
-                <a href="checkout.php?id_keranjang=<?= $row['id_keranjang'];?>">Check Out</a>
-                <a href="hapuskeranjang.php?id_keranjang=<?= $row['id_keranjang'];?>" onclick="return confirm('Hapus item ke keranjang?')">Hapus</a>
-            </td>
+            <form action="controlkeranjang.php" method="get">
+                <td><?php echo $i; ?></td>
+                <td><?=$row["nama_produk"]; ?></td>
+                <td><?=$row["harga"]; ?></td>
+                <td><?=$row["deskripsi"]; ?></td>
+                <td><?=$row["foto"]; ?></td>
+                <td>
+                    <input type="text" name="qty" id="qty" value="<?= $row["qty"];?>">
+                </td>
+                <td>
+                    <input type="hidden" name="id_keranjang" value="<?= $row['id_keranjang']?>">
+                    <input type="submit" value="Checkout" name="checkout">
+                    <input type="submit" value="Hapus" name="hapusitem">
+                </td>
+            </form>
         </tr>
         <?php $i++; endforeach; ?>
     </table>
-    <a href="">Check Out Semua</a>
 </body>
 </html>
