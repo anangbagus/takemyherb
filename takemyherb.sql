@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 08, 2021 at 05:25 AM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.12
+-- Waktu pembuatan: 09 Des 2021 pada 15.01
+-- Versi server: 10.4.13-MariaDB
+-- Versi PHP: 7.4.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,31 +24,32 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `keranjang`
+-- Struktur dari tabel `keranjang`
 --
 
 CREATE TABLE `keranjang` (
   `id_keranjang` int(11) NOT NULL,
   `tgl` datetime DEFAULT current_timestamp(),
   `id_user` int(11) NOT NULL,
-  `id_produk` int(11) NOT NULL
+  `id_produk` int(11) NOT NULL,
+  `qty` int(11) DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `keranjang`
+-- Dumping data untuk tabel `keranjang`
 --
 
-INSERT INTO `keranjang` (`id_keranjang`, `tgl`, `id_user`, `id_produk`) VALUES
-(1, '2021-12-08 11:05:17', 3, 1),
-(2, '2021-12-08 11:05:32', 3, 5),
-(3, '2021-12-08 11:05:43', 6, 7),
-(4, '2021-12-08 11:05:50', 5, 4),
-(5, '2021-12-08 11:05:59', 4, 10);
+INSERT INTO `keranjang` (`id_keranjang`, `tgl`, `id_user`, `id_produk`, `qty`) VALUES
+(1, '2021-12-08 11:05:17', 7, 1, 2),
+(2, '2021-12-08 11:05:32', 7, 5, 4),
+(3, '2021-12-08 11:05:43', 6, 7, 1),
+(4, '2021-12-08 11:05:50', 5, 4, 1),
+(5, '2021-12-08 11:05:59', 4, 10, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pemesanan`
+-- Struktur dari tabel `pemesanan`
 --
 
 CREATE TABLE `pemesanan` (
@@ -62,7 +63,7 @@ CREATE TABLE `pemesanan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `pemesanan`
+-- Dumping data untuk tabel `pemesanan`
 --
 
 INSERT INTO `pemesanan` (`id_pemesanan`, `tgl_pemesanan`, `id_user`, `id_produk`, `quantity`, `total_harga`, `alamat_pengiriman`) VALUES
@@ -70,12 +71,13 @@ INSERT INTO `pemesanan` (`id_pemesanan`, `tgl_pemesanan`, `id_user`, `id_produk`
 (2, '2021-12-08 11:21:53', 6, 7, 2, 30000, 'jln unud '),
 (3, '2021-12-08 11:56:19', 5, 21, 2, 60000, 'jl. kevin space'),
 (4, '2021-12-08 11:58:30', 4, 22, 2, 50000, 'jl. dewata 90'),
-(5, '2021-12-08 11:59:12', 6, 16, 2, 70000, 'jln Mengkudu 289');
+(5, '2021-12-08 11:59:12', 6, 16, 2, 70000, 'jln Mengkudu 289'),
+(6, '2021-12-09 21:43:14', 7, 11, 2, 30000, 'Blitar');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `produk`
+-- Struktur dari tabel `produk`
 --
 
 CREATE TABLE `produk` (
@@ -91,7 +93,7 @@ CREATE TABLE `produk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `produk`
+-- Dumping data untuk tabel `produk`
 --
 
 INSERT INTO `produk` (`id_produk`, `nama_produk`, `manfaat`, `harga`, `deskripsi`, `tgl_ditambahkan`, `stok`, `foto`, `tipe`) VALUES
@@ -128,7 +130,7 @@ INSERT INTO `produk` (`id_produk`, `nama_produk`, `manfaat`, `harga`, `deskripsi
 -- --------------------------------------------------------
 
 --
--- Table structure for table `review`
+-- Struktur dari tabel `review`
 --
 
 CREATE TABLE `review` (
@@ -141,7 +143,7 @@ CREATE TABLE `review` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `review`
+-- Dumping data untuk tabel `review`
 --
 
 INSERT INTO `review` (`id_review`, `tgl_review`, `id_user`, `id_produk`, `ulasan`, `reply`) VALUES
@@ -154,7 +156,7 @@ INSERT INTO `review` (`id_review`, `tgl_review`, `id_user`, `id_produk`, `ulasan
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -167,21 +169,23 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`id_user`, `nama_user`, `email`, `username`, `password`, `hp`) VALUES
+(0, 'admin', 'admin@gmail.com', 'admin', '21232f297a57a5a743894a0e4a801fc3', '123456789'),
 (3, 'ananta', 'anantaw81@gmail.com', 'anantaw81', '202cb962ac59075b964b07152d234b70', '089541096532'),
 (4, 'test', 'test@test.com', 'test', '098f6bcd4621d373cade4e832627b4f6', '0895'),
 (5, 'kevin', 'kevin@homealone.com', 'kevin', '202cb962ac59075b964b07152d234b70', '123'),
-(6, 'basisdata', 'basisdata@gmail.com', 'basisdata', '202cb962ac59075b964b07152d234b70', '123');
+(6, 'basisdata', 'basisdata@gmail.com', 'basisdata', '202cb962ac59075b964b07152d234b70', '123'),
+(7, 'anang', 'anangbagus666@gmail.com', 'anang', '782860a9d7f2f2011d5f294036de712d', '123456789');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `keranjang`
+-- Indeks untuk tabel `keranjang`
 --
 ALTER TABLE `keranjang`
   ADD PRIMARY KEY (`id_keranjang`),
@@ -189,7 +193,7 @@ ALTER TABLE `keranjang`
   ADD KEY `id_produk` (`id_produk`);
 
 --
--- Indexes for table `pemesanan`
+-- Indeks untuk tabel `pemesanan`
 --
 ALTER TABLE `pemesanan`
   ADD PRIMARY KEY (`id_pemesanan`),
@@ -197,13 +201,13 @@ ALTER TABLE `pemesanan`
   ADD KEY `id_produk` (`id_produk`);
 
 --
--- Indexes for table `produk`
+-- Indeks untuk tabel `produk`
 --
 ALTER TABLE `produk`
   ADD PRIMARY KEY (`id_produk`);
 
 --
--- Indexes for table `review`
+-- Indeks untuk tabel `review`
 --
 ALTER TABLE `review`
   ADD PRIMARY KEY (`id_review`),
@@ -211,65 +215,65 @@ ALTER TABLE `review`
   ADD KEY `id_produk` (`id_produk`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `keranjang`
+-- AUTO_INCREMENT untuk tabel `keranjang`
 --
 ALTER TABLE `keranjang`
-  MODIFY `id_keranjang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_keranjang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT for table `pemesanan`
+-- AUTO_INCREMENT untuk tabel `pemesanan`
 --
 ALTER TABLE `pemesanan`
-  MODIFY `id_pemesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_pemesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `produk`
+-- AUTO_INCREMENT untuk tabel `produk`
 --
 ALTER TABLE `produk`
   MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
--- AUTO_INCREMENT for table `review`
+-- AUTO_INCREMENT untuk tabel `review`
 --
 ALTER TABLE `review`
   MODIFY `id_review` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `keranjang`
+-- Ketidakleluasaan untuk tabel `keranjang`
 --
 ALTER TABLE `keranjang`
   ADD CONSTRAINT `keranjang_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`),
   ADD CONSTRAINT `keranjang_ibfk_2` FOREIGN KEY (`id_produk`) REFERENCES `produk` (`id_produk`);
 
 --
--- Constraints for table `pemesanan`
+-- Ketidakleluasaan untuk tabel `pemesanan`
 --
 ALTER TABLE `pemesanan`
   ADD CONSTRAINT `pemesanan_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`),
   ADD CONSTRAINT `pemesanan_ibfk_2` FOREIGN KEY (`id_produk`) REFERENCES `produk` (`id_produk`);
 
 --
--- Constraints for table `review`
+-- Ketidakleluasaan untuk tabel `review`
 --
 ALTER TABLE `review`
   ADD CONSTRAINT `review_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`),
