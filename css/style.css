@@ -1,9 +1,3 @@
-*,
-*::after,
-*::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit; }
 
 
 .bg-red {
@@ -19,4 +13,10 @@
 .bg-yellow {
     background-color: rgb(255, 208, 0);
     height: 200px;
+}
+
+
+.img-product{
+    height : 25rem;
+    background-size: cover;
 }
