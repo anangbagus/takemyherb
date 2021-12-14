@@ -28,6 +28,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <title>produk</title>
 </head>
 <body>
@@ -37,44 +38,13 @@
 
     <!-- Pencarian -->
     <b>Pencarian</b>
-    <form action="" method="post">
-        <input type="text" name="keyword" autofocus placeholder="Cari" autocomplete="off">
-        <button type="submit" name="cari">Cari</button>
-    </form>
+    <input type="text" name="keyword" id="keyword" autofocus placeholder="Cari" autocomplete="off">
     <br> 
 
     <br> <br>
 
     <!-- menampilkan table -->
-    <table border="1" cellpadding="10" cellspacing="0">
-        <tr>
-            <th>ID</th>
-            <th>Nama</th>
-            <th>Manfaat</th>
-            <th>Harga</th>
-            <th>Deskripsi</th>
-            <th>Stok</th>
-            <th>Foto</th>
-            <th>Tipe</th>
-            <th>Aksi</th>
-        </tr>
-        
-        <?php foreach($produk as $row) : ?>
-        <tr>
-            <td><?php echo "<a href='detailproduk.php?id_produk=".$row["id_produk"]."'>".$row["id_produk"]."</a>"; ?></td>
-            <td><?=$row["nama_produk"]; ?></td>
-            <td><?=$row["manfaat"]; ?></td>
-            <td><?=$row["harga"]; ?></td>
-            <td><?=$row["deskripsi"]; ?></td>
-            <td><?=$row["stok"]; ?></td>
-            <td><?=$row["foto"]; ?></td>
-            <td><?=$row["tipe"]; ?></td>
-            <td>
-                <a href="addkeranjang.php?id_produk=<?= $row['id_produk'];?>" onclick="return confirm('Masukkan item ke keranjang?')">Tambah Keranjang</a>
-            </td>
-        </tr>
-        <?php endforeach; ?>
-    </table>
+    <table border="1" cellpadding="10" cellspacing="0"></table>
     <br> <br>
 
     <!-- menampilkan jumlah produk -->
@@ -85,5 +55,27 @@
     <a href="keranjang.php">Keranjang</a>
     <a href="profile.php">Profile</a>
     <a href="logout.php" class="btn">Logout</a>
+
+    <script>
+        $(document).ready(function(){
+		load_data();
+		function load_data(keyword)
+		{
+            $.ajax({
+                method:"POST",
+				url:"loadproduk.php",
+				data: {keyword: keyword},
+				success:function(hasil)
+				{
+                    $('table').html(hasil);
+				}
+			});
+	 	}
+		$('#keyword').keyup(function(){
+    		var keyword = $("#keyword").val();
+			load_data(keyword);
+		});
+	});
+    </script>
 </body>
 </html>
