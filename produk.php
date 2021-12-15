@@ -46,7 +46,7 @@
     <link rel="stylesheet" href="css/style.css">
     <title>produk</title>
 </head>
-<body>
+<body style="background-color: rgb(238,238,238);">
 
     <div class="container-fluid py-5">
         <div class="container">
@@ -58,8 +58,7 @@
 
                         <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;">
                         <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                            <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
-                            <span class="fs-4">Admin</span>
+                            <i class="bi bi-person-circle" style="font-size: 30px;"></i> <h5 class="mt-3 ml-5">Admin</h5>
                         </a>
                         <hr>
                         <ul class="nav nav-pills flex-column mb-auto">
@@ -88,21 +87,9 @@
                                 <i class="bi bi-box-arrow-right"></i> Keluar
                             </a>
                             </li>
-                            
                         </ul>
                         <hr>
                         <div class="dropdown">
-                            <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-                            <strong>mdo</strong>
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                            <li><a class="dropdown-item" href="#">New project...</a></li>
-                            <li><a class="dropdown-item" href="#">Settings</a></li>
-                            <li><a class="dropdown-item" href="#">Profile</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Sign out</a></li>
-                            </ul>
                         </div>
                         </div>
 
@@ -110,22 +97,27 @@
                     </div>
 
 
-                    <div class="col-9 col-md-8 ">
+                    <div class="col-lg-9 col-md-8 ">
                         
                         <!-- Pencarian -->
-                        <b>Pencarian</b>
-                        <form action="" method="post">
-                            <input type="text" name="keyword" autofocus placeholder="Cari" autocomplete="off">
-                            <button type="submit" name="cari">Cari</button>
-                        </form>
-                        <br> 
-                        <h1><ins>Data produk</ins></h1>
-                        <a href="addproduk.php">Tambah Data Produk</a>
-                        <br> <br>
+                        <h1 class="text-center">Data produk</h1>
+                        <div class="">
+                            <a href="addproduk.php"><i class="bi bi-plus-circle-fill text-success d-inline" style="font-size: 40px;"></i></a> 
+                            <h4 class="d-inline"> Tambah Produk </h4>
+                            (Jumlah produk: <?php echo $jumlah["COUNT(*)"];?>)
+                            <br>
+                        </div>
+                        <div class="">
+                            <form class="d-inline" action="" method="post">
+                                <input type="text" name="keyword" autofocus placeholder="Cari" autocomplete="off">
+                                <button type="submit" name="cari">Cari</button>
+                            </form>
+                        </div>
+                        
                         <!-- menampilkan jumlah produk -->
-                        <a>Jumlah produk: <?php echo $jumlah["COUNT(*)"];?>
+                        
                         <!-- menampilkan table -->
-                        <table border="1" cellpadding="10" cellspacing="0">
+                        <!-- <table border="1" cellpadding="10" cellspacing="0">
                             <tr>
                                 <th>ID</th>
                                 <th>Nama</th>
@@ -136,10 +128,37 @@
                                 <th>Foto</th>
                                 <th>Tipe</th>
                                 <th>Aksi</th>
-                            </tr>
+                            </tr> -->
                             
                             <?php foreach($produk as $row) : ?>
-                            <tr>
+                            <div class="container mt-3 mb-3">
+                                <div class="d-flex row">
+                                    <div class="col-md-12">
+                                        <div class="row p-2 bg-white border rounded">
+                                            <div class="col-md-2 mt-1 mr-3 text-end">
+                                                <img class="img-fluid img-responsive rounded product-image" style="height: 160px;" src="img/<?=$row["foto"]; ?>.jpg"></div>
+                                            <div class="col-md-8 mt-1">
+                                                <h5><?=$row["nama_produk"]; ?></h5>
+                                                <p class="text-justify para mb-0"> <?=$row["deskripsi"]; ?> <br></p>
+                                                Harga : Rp.<?=$row["harga"]; ?>,00 <br>
+                                                Tipe : <?=$row["tipe"]; ?> <br>
+                                                Stok : <?=$row["stok"]; ?>
+                                            </div>
+                                            <div class="align-items-center align-content-center col-md-2 border-left mt-1">
+                                                <div class="d-flex flex-row align-items-center" style="font-size: 30px;">
+                                                    <a href="editproduk.php?id_produk=<?=$row["id_produk"]; ?>"> <i class="bi bi-pencil-square text-success"></i> </a> 
+                                                    <a href="deleteproduk.php?id_produk=<?=$row["id_produk"]; ?>" onclick="return confirm('yakin?');"><i class="bi bi-trash-fill text-success"></i></a>
+                                                </div>
+                                                <div class="d-flex flex-column ">
+                                                </div>  
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
+                            <!-- <tr>
                                 <td><?php echo "<a href='detailproduk.php?id_produk=".$row["id_produk"]."'>".$row["id_produk"]."</a>"; ?></td>
                                 <td><?=$row["nama_produk"]; ?></td>
                                 <td><?=$row["manfaat"]; ?></td>
@@ -152,9 +171,9 @@
                                     <a href="editproduk.php?id_produk=<?=$row["id_produk"]; ?>"><i class="bi bi-pencil-square"></i></a> |
                                     <a href="deleteproduk.php?id_produk=<?=$row["id_produk"]; ?>" onclick="return confirm('yakin?');"><i class="bi bi-trash-fill"></i></a>
                                 </td>
-                            </tr>
+                            </tr> -->
                             <?php endforeach; ?>
-                        </table>
+                        <!-- </table> -->
                         <br> <br>
                     </div>
                 </div>
