@@ -1,18 +1,20 @@
 <?php
-$koneksi = mysqli_connect("localhost", "root", "", "takemyherb");
-
-//menghubungkan dengan file config.php
+// menghubungkan dengan file config.php
 require 'config.php';
 
-// validasi akses
+// validasi login
+// pengguna harus melakukan login terlebih dahulu
+// sebelum dapat mengakses halaman ini
 session_start();
-
 if(!isset($_SESSION['username'])){
     echo "<script>alert('Anda belum melakukan login!')
         window.location.replace('index.php')
     </script>";
 }
 else {
+    // validasi akses
+    // pengguna harus merupakan admin yang ditandai
+    // dengan id_user bernilai 0
     $username = $_SESSION['username'];
     $sql = "SELECT * FROM user WHERE username='$username'";
     $result = mysqli_query($koneksi, $sql);
@@ -26,7 +28,7 @@ else {
     }
 };
 
-//cek tombol apakah sudah ditekan atau belum
+// cek tombol apakah sudah ditekan atau belum
 if (isset($_POST["submit"])) {
     $tipe = $_POST["tipe"];
     $nama_produk = $_POST["nama_produk"];
@@ -35,14 +37,15 @@ if (isset($_POST["submit"])) {
     $deskripsi = $_POST["deskripsi"];
     $stok = $_POST["stok"];
 
+    // melakukan insert ke tabel produk
     $query = "INSERT INTO produk (nama_produk, manfaat, harga, deskripsi, stok, tipe)
                 VALUES ('$nama_produk', '$manfaat', '$harga', '$deskripsi', '$stok', '$tipe')";
     mysqli_query($koneksi, $query);
 
-    //cek apakah data berhasil ditambahkan atau tidak
+    // cek apakah data berhasil ditambahkan atau tidak
     if (mysqli_affected_rows($koneksi)) {
-        //javascript untuk memberikan pemberitahuan
-        //nanti index.php ganti jadi halaman anggota
+        // javascript untuk memberikan pemberitahuan
+        // kemudian akan diarahkan ke halaman produk atau addproduk
         echo "
         <script>
         alert( 'Data Telah Berhasil Disimpan' );

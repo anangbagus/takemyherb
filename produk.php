@@ -1,14 +1,20 @@
 <?php
+    // menghubungkan dengan file config.php
     require('config.php');
 
+    // validasi login
+    // pengguna harus melakukan login terlebih dahulu
+    // sebelum dapat mengakses halaman ini
     session_start();
-
     if(!isset($_SESSION['username'])){
         echo "<script>alert('Anda belum melakukan login!')
             window.location.replace('index.php')
         </script>";
     }
     else {
+        // validasi akses
+        // pengguna harus merupakan admin yang ditandai
+        // dengan id_user bernilai 0
         $username = $_SESSION['username'];
         $sql = "SELECT * FROM user WHERE username='$username'";
         $result = mysqli_query($koneksi, $sql);
@@ -22,6 +28,7 @@
         }
     };
 
+    // pengambilan data dari tabel produk
     $produk = query("SELECT id_produk, nama_produk, manfaat, harga, deskripsi, stok, foto, tipe FROM produk");
 
     // jika menekan tombol cari

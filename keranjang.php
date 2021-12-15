@@ -1,8 +1,11 @@
 <?php 
+    // menghubungkan dengan file config.php
     require("config.php");
 
+    // validasi login
+    // pengguna harus melakukan login terlebih dahulu
+    // sebelum dapat mengakses halaman ini
     session_start();
-
     if(!isset($_SESSION['username'])){
         echo "<script>alert('Anda belum melakukan login!')
             window.location.replace('index.php')
@@ -10,6 +13,8 @@
     };
 
     $username = $_SESSION['username'];
+
+    // pengambilan data dari beberapa tabel
     $keranjang = query("SELECT k.*, u.username, p.* FROM keranjang k INNER JOIN user u ON k.id_user = u.id_user INNER JOIN produk p ON k.id_produk = p.id_produk WHERE u.username = '$username'");
 ?>
 

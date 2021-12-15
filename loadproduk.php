@@ -23,12 +23,14 @@
                     if(isset($_POST['keyword'])){
                         $keyword = $_POST['keyword'];
                     };
+
+                    // pengambilan data produk sesuai dengan keyword
                     $produk = query("SELECT * FROM produk WHERE nama_produk LIKE '%$keyword%' OR manfaat LIKE '%$keyword%' OR deskripsi LIKE '%$keyword%'");
 
                     foreach($produk as $row) : ?>
-                        <div class="col-lg-3 col-md-4 col-sm-6 mb-5">
-                            <a href="detailproduk.php?id_produk=<?=$row["id_produk"]?>" class="test">
-                            <div class="card">
+                    <div class="col-lg-3 col-md-4 col-sm-6 mb-5">
+                        <a href="detailproduk.php?id_produk=<?=$row["id_produk"]?>" class="test">
+                        <div class="card">
                             <img src="img/<?=$row["foto"]; ?>.jpg" class="card-img-top" style="height: 200px; object-fit: cover;"  alt="<?=$row["nama_produk"]; ?>">
                             <div class="card-body">
                                 <h5 class="card-title"><?=$row["nama_produk"]; ?>

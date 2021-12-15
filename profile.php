@@ -1,8 +1,11 @@
 <?php
+    // menghubungkan dengan file config.php
     require('config.php');
 
+    // validasi login
+    // pengguna harus melakukan login terlebih dahulu
+    // sebelum dapat mengakses halaman ini
     session_start();
-
     if(!isset($_SESSION['username'])){
         echo "<script>alert('Anda belum melakukan login!')
             window.location.replace('index.php')
@@ -12,6 +15,7 @@
         $username = $_SESSION['username'];
     };
 
+    // pengambilan data user sesuai dengan username
     $user = query("SELECT * FROM user where username = '$username'");
 ?>
 

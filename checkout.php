@@ -1,8 +1,11 @@
-<?php 
+<?php
+    // menghubungkan dengan file config.php
     require("config.php");
 
+    // validasi login
+    // pengguna harus melakukan login terlebih dahulu
+    // sebelum dapat mengakses halaman ini
     session_start();
-
     if(!isset($_SESSION['username'])){
         echo "<script>alert('Anda belum melakukan login!')
             window.location.replace('index.php')
@@ -12,12 +15,12 @@
     $username = $_SESSION['username'];
     $id_keranjang = $_GET['id_keranjang'];
     $a = $_GET['a'];
+
+    // cek tombol apakah sudah ditekan atau belum
     if(isset($_GET['id_keranjang'])){
+        // proses pengambilan data dari beberapa tabel
         if($a == 'Checkout'){
             $keranjang = query("SELECT k.*, p.* FROM keranjang k INNER JOIN produk p ON k.id_produk = p.id_produk WHERE k.id_keranjang = '$id_keranjang'");
-        }
-        else{
-            $keranjang = query("SELECT k.*, u.username, p.* FROM keranjang k INNER JOIN user u ON k.id_user = u.id_user INNER JOIN produk p ON k.id_produk = p.id_produk WHERE u.username = '$username'");
         }
     }
     $total = 0;
