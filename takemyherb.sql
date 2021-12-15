@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 09 Des 2021 pada 15.01
+-- Waktu pembuatan: 15 Des 2021 pada 14.09
 -- Versi server: 10.4.13-MariaDB
 -- Versi PHP: 7.4.7
 
@@ -59,20 +59,21 @@ CREATE TABLE `pemesanan` (
   `id_produk` int(11) DEFAULT NULL,
   `quantity` int(11) DEFAULT NULL,
   `total_harga` int(11) DEFAULT NULL,
-  `alamat_pengiriman` varchar(200) DEFAULT NULL
+  `alamat_pengiriman` varchar(200) DEFAULT NULL,
+  `status` int(11) DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `pemesanan`
 --
 
-INSERT INTO `pemesanan` (`id_pemesanan`, `tgl_pemesanan`, `id_user`, `id_produk`, `quantity`, `total_harga`, `alamat_pengiriman`) VALUES
-(1, '2021-12-08 11:09:35', 3, 1, 2, 30000, 'Jl Melati nO 2'),
-(2, '2021-12-08 11:21:53', 6, 7, 2, 30000, 'jln unud '),
-(3, '2021-12-08 11:56:19', 5, 21, 2, 60000, 'jl. kevin space'),
-(4, '2021-12-08 11:58:30', 4, 22, 2, 50000, 'jl. dewata 90'),
-(5, '2021-12-08 11:59:12', 6, 16, 2, 70000, 'jln Mengkudu 289'),
-(6, '2021-12-09 21:43:14', 7, 11, 2, 30000, 'Blitar');
+INSERT INTO `pemesanan` (`id_pemesanan`, `tgl_pemesanan`, `id_user`, `id_produk`, `quantity`, `total_harga`, `alamat_pengiriman`, `status`) VALUES
+(1, '2021-12-08 11:09:35', 3, 1, 2, 30000, 'Jl Melati nO 2', 3),
+(2, '2021-12-08 11:21:53', 6, 7, 2, 30000, 'jln unud ', 1),
+(3, '2021-12-08 11:56:19', 5, 21, 2, 60000, 'jl. kevin space', 2),
+(4, '2021-12-08 11:58:30', 4, 22, 2, 50000, 'jl. dewata 90', 0),
+(5, '2021-12-08 11:59:12', 6, 16, 2, 70000, 'jln Mengkudu 289', 2),
+(6, '2021-12-09 21:43:14', 7, 11, 2, 30000, 'Blitar', 1);
 
 -- --------------------------------------------------------
 
