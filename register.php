@@ -1,15 +1,17 @@
 <?php 
- 
+// menghubungkan dengan file config.php
 include 'config.php';
  
 error_reporting(0);
- 
+
+// validasi login
+// jika pengguna sudah login maka akan diarahkan ke halaman market.php
 session_start();
- 
 if (isset($_SESSION['username'])) {
-    header("Location: produk.php");
+    header("Location: market.php");
 }
- 
+
+// cek tombol apakah sudah ditekan atau belum
 if (isset($_POST['submit'])) {
     $name = $_POST['name'];
     $username = $_POST['username'];
@@ -17,11 +19,15 @@ if (isset($_POST['submit'])) {
     $cpassword = md5($_POST['cpassword']);
     $email = $_POST['email'];
     $phone = $_POST['phone'];
- 
+
+    // validasi data pengguna
+    // jika password dan confirmation password tidak sama akan diberikan pemberitahuan
     if ($password == $cpassword) {
-        $sql = "SELECT * FROM users WHERE email='$email'";
+        // pengambilan data dari tabel user
+        $sql = "SELECT * FROM user WHERE email='$email'";
         $result = mysqli_query($koneksi, $sql);
         if (!$result->num_rows > 0) {
+            // melakukan insert data pengguna ke dalam tabel user
             $sql = "INSERT INTO user (`id_user`, `nama_user`, `email`, `username`, `password`, `hp`)
                     VALUES ('', '$name', '$email', '$username', '$password', '$phone')";
             $result = mysqli_query($koneksi, $sql);

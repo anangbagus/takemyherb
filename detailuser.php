@@ -1,9 +1,10 @@
 <?php
+    // menghubungkan dengan file config.php
     require('config.php');
 
     //mengecek url, 
     //jika tidak ada id_user -> lempar ke index
-    if( !isset($_GET["id_user"])){
+    if(!isset($_GET["id_user"])){
         header("Location: index.php");
         exit();
     }

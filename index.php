@@ -1,11 +1,15 @@
 <?php 
- 
+// menghubungkan dengan file config.php
 include 'config.php';
  
 error_reporting(0);
- 
+
+// validasi login
+// jika pengguna sudah melakukan login
+// pengguna akan diarahkan sesuai dengan statusnya
+// jika id_user bernilai 0 maka akan diarahkan ke produk.php
+// selain itu maka ke market.php
 session_start();
- 
 if (isset($_SESSION['username'])) {
     $username = $_SESSION['username'];
     $sql = "SELECT * FROM user WHERE username='$username'";
@@ -20,13 +24,18 @@ if (isset($_SESSION['username'])) {
         }
     }
 }
- 
+
+// cek tombol apakah sudah ditekan atau belum
 if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     $password = md5($_POST['password']);
- 
+
+    // pengambilan data dari tabel user sesuai dengan masukan yang diterima
     $sql = "SELECT * FROM user WHERE email='$email' AND password='$password'";
     $result = mysqli_query($koneksi, $sql);
+    // jika terdapat data yang sama, maka pengguna akan diarahkan
+    // ke halaman selanjutnya sesuai statusnya.
+    // jika data tidak ditemukan maka akan diberikan pemberitahuan
     if ($result->num_rows > 0) {
         $row = mysqli_fetch_assoc($result);
         $_SESSION['username'] = $row['username'];

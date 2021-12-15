@@ -1,15 +1,20 @@
 <?php
-$koneksi = mysqli_connect("localhost", "root", "", "takemyherb");
+    // menghubungkan dengan file config.php
     require 'config.php';
     
+    // validasi login
+    // pengguna harus melakukan login terlebih dahulu
+    // sebelum dapat mengakses halaman ini
     session_start();
-
     if(!isset($_SESSION['username'])){
         echo "<script>alert('Anda belum melakukan login!')
             window.location.replace('index.php')
         </script>";
     }
     else {
+        // validasi akses
+        // pengguna harus merupakan admin yang ditandai
+        // dengan id_user bernilai 0
         $username = $_SESSION['username'];
         $sql = "SELECT * FROM user WHERE username='$username'";
         $result = mysqli_query($koneksi, $sql);
@@ -23,9 +28,11 @@ $koneksi = mysqli_connect("localhost", "root", "", "takemyherb");
         }
     };
     
-    $id= $_GET["id_produk"];
-
-    if( hapusproduk($id)>0 ) {
+    $id = $_GET["id_produk"];
+    
+    // proses penghapusan data produk dengan memanggil
+    // fungsi hapusproduk
+    if(hapusproduk($id)>0) {
         echo "
             <script>
                 alert('data berhasil dihapus');
