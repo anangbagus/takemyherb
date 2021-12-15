@@ -1,4 +1,3 @@
-
 <!-- product list -->
 <div class="container-fluid py-5">
     <div class="container">
@@ -16,10 +15,10 @@
                         <?php endforeach; ?>
                     </div>
                 </div>
-                <div class="col-9 col-md-8 ">
+                <div class="col-lg-9 col-md-8 ">
                     <div class="row">
-                    <?php
-                    // pengambilan data keyword
+
+                    <?php 
                     $keyword = "";
                     if(isset($_POST['keyword'])){
                         $keyword = $_POST['keyword'];
@@ -40,11 +39,14 @@
                                 <div class="text-truncate">
                                     <?=$row["deskripsi"]; ?>
                                 </div>
-                                <p class="font-monospace"> Rp.<?=$row["harga"]; ?>,00</p>
+                                <p class="font-monospace text-primary "> Rp.<?=$row["harga"]; ?>,00</p>
+                                <a href="addkeranjang.php?id_produk=<?= $row['id_produk'];?>" onclick="return confirm('Masukkan item ke keranjang?')">
+                                    <button class="btn btn-success btn-sm mt-2" value="Checkout" name="checkout"> Masukkan ke Keranjang </button>
+                                </a>
                             </div>
+                            </div>
+                            </a>
                         </div>
-                        </a>
-                    </div>
                     <?php endforeach; ?>
                     </div>
                 </div>
