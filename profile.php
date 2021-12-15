@@ -30,32 +30,22 @@
     <link rel="stylesheet" href="css/style.css">
     <title>Profile</title>
 </head>
-<body>
+<body style="background-color: rgb(238,238,238);">
 
     <!-- navbar -->
     <?php include('_header.php'); ?>
 
-    <!-- bootstrap -->
-    <section class="team-clean">
-        <div class="container">
-            <div class="intro">
-                <h2 class="text-center">Profile </h2>
-                <p class="text-center"> Edit your profile here </p>
-            </div>
-            <div class="row people">
-                <div class="col-md-6 col-lg-4 item">
-                    <img class="rounded-circle" src="img/profile/1.jpg">
-                </div>
-                <div class="col-md-6 col-lg-4 item">
-                    <h3 class="name">Ben Johnson</h3>
-                    <p class="title">Artist</p>
-                    <table>
-                    <?php foreach($user as $row):?>
-                    <tr>
-                        <td>Name</td>
-                        <td>:</td>
-                        <td><?= $row['nama_user'];?></td>
-                    </tr>
+    <div class="container mt-4 mb-4 m-5 p-3 d-flex justify-content-center">
+        <div class="card p-5">
+            <h3 class="text-center text-success">Profile</h3>
+            <table>
+            <?php foreach($user as $row):?>    
+            <div class="image d-flex flex-column justify-content-center align-items-center"> 
+                <button class="btn btn-secondary"> 
+                
+                <img src="https://i.imgur.com/wvxPV9S.png" height="100" width="100" />
+                </button> <h4><span class="name mt-3"><?= $row['nama_user'];?></span></h4>
+                <div class="d-flex flex-row justify-content-center align-items-center gap-2"> 
                     <tr>
                         <td>Username</td>
                         <td>:</td>
@@ -71,20 +61,19 @@
                         <td>:</td>
                         <td><?= $row['hp'];?></td>
                     </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td>
-                            <button>Edit Profile</button>
-                        </td>
-                    </tr>
-                    <?php endforeach; ?>
-                    </table>
-                    <div class="social"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
-                </div>
+                </div> 
+                <!-- <div class="text mt-3"> <span>Eleanor Pena is a creator of minimalistic x bold graphics and digital artwork.<br><br> Artist/ Creative Director by Day #NFT minting@ with FND night. </span> </div>
+                <div class="gap-3 mt-3 icons d-flex flex-row justify-content-center align-items-center"> <span><i class="fa fa-twitter"></i></span> <span><i class="fa fa-facebook-f"></i></span> <span><i class="fa fa-instagram"></i></span> <span><i class="fa fa-linkedin"></i></span> </div>
+                <div class=" px-2 rounded mt-4 date "> <span class="join">Joined May,2021</span> </div> -->
             </div>
+            <div class=" d-flex mt-2 text-center"> 
+            </div>
+            <?php endforeach; ?>
+            </table>
+            <button class="btn1 btn-success mt-3">Edit Profile</button> 
         </div>
-    </section>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>
