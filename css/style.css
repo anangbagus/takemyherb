@@ -1,4 +1,5 @@
 
+/* Testing */
 
 .bg-red {
     background-color: red;
@@ -15,8 +16,16 @@
     height: 200px;
 }
 
+.bg-full {
+    background-color: aqua;
+}
+
+.bg-border {
+    border: solid ;
+}
 
 .img-product{
     height : 25rem;
     background-size: cover;
 }
+

@@ -28,33 +28,85 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<link rel="stylesheet" href="css/style.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <title>produk</title>
 </head>
 <body>
 
-    <h1><ins>Data produk</ins></h1>
-    <br>
+    <!-- navbar -->
+    <header>
+        <div class="px-3 py-2 bg-dark text-white">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
+                <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+            </a>
 
-    <!-- Pencarian -->
-    <b>Pencarian</b>
-    <input type="text" name="keyword" id="keyword" autofocus placeholder="Cari" autocomplete="off">
-    <br> 
-
-    <br> <br>
+            <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+                <li>
+                <a href="#" class="nav-link text-secondary">
+                    <i width="24" height="24" class="bi bi-house-fill"></i>
+                    Home
+                </a>
+                </li>
+                <li>
+                <a href="#" class="nav-link text-white">
+                    <i class="bi bi-info-circle"></i>
+                    Blog
+                </a>
+                </li>
+                <li>
+                <a href="market.php" class="nav-link text-white">
+                    <i class="bi bi-shop-window"></i>
+                    Produk
+                </a>
+                </li>
+                <li>
+                <a href="keranjang.php" class="nav-link text-white">
+                    <i class="bi bi-cart3"></i>
+                    Keranjang
+                </a>
+                </li>
+                <li>
+                <a href="profile.php" class="nav-link text-white">
+                    <i class="bi bi-person-circle"></i>
+                    Profil
+                </a>
+                </li>
+                <li>
+                <a href="logout.php" class="nav-link text-white">
+                    <i class="bi bi-box-arrow-right"></i>
+                    Keluar
+                </a>
+                </li>
+            </ul>
+            </div>
+        </div>
+        </div>
+        <div class="px-3 py-2 border-bottom mb-3">
+        <div class="container d-flex flex-wrap justify-content-center">
+            <form class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto">
+            <input type="text" placeholder="Cari produk..." class="form-control" name="keyword" id="keyword" autofocus placeholder="Cari" autocomplete="off">
+            <!-- <input type="search" class="form-control" placeholder="Search..." aria-label="Search"> -->
+            </form>
+            <div class="text-end">
+                 <!-- menampilkan jumlah produk -->
+                <a>Jumlah produk: <?php echo $jumlah["COUNT(*)"];?>
+            </div>
+            
+        </div>
+        <h2 class="text-center  "> Produk Kami</h2>
+        </div>
+    </header>
 
     <!-- menampilkan table -->
-    <table border="1" cellpadding="10" cellspacing="0"></table>
+     <table border="1" cellpadding="10" cellspacing="0"></table>
     <br> <br>
 
-    <!-- menampilkan jumlah produk -->
-    <a>Jumlah produk: <?php echo $jumlah["COUNT(*)"];?>
 
-    <br><br><br><br><br>
-    <br><br><br><br><br>
-    <a href="keranjang.php">Keranjang</a>
-    <a href="profile.php">Profile</a>
-    <a href="logout.php" class="btn">Logout</a>
 
     <script>
         $(document).ready(function(){
@@ -77,5 +129,6 @@
 		});
 	});
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>
