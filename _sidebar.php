@@ -19,7 +19,7 @@
         </a>                      
         </li>
         <li>
-        <a href="" class="nav-link text-white ">
+        <a href="user.php" class="nav-link text-white ">
             <i class="bi bi-file-person"></i> Akun
         </a>
         </li>
