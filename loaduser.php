@@ -27,6 +27,7 @@
         <td><?=$row["password"]; ?></td>
         <td><?=$row["hp"]; ?></td>
         <td>
+            <a href="editprofile.php?id_user=<?=$row["id_user"]; ?>">edit</a>
             <a href="deleteuser.php?id_user=<?=$row["id_user"]; ?>" onclick="return confirm('yakin?');">hapus</a>
         </td>
     </tr>
