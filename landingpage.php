@@ -23,8 +23,12 @@
             <i class="fa fa-envira text-success"></i> Take My Herb
         </a>
         <div class="text-end">
+            <a href="index.php">
             <button class="btn btn-success btn-sm mt-2" > Login </button>
+            </a>
+            <a href="register.php">
             <button class="btn btn-outline-success btn-sm mt-2" > Register </button>    
+            </a>
         </div>
     </div>
 
