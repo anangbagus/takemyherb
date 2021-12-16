@@ -1,5 +1,5 @@
 <?php
-include "config.php";
+require ("config.php");
 $id_pemesanan = $_GET['id_pemesanan'];
 $mode = $_GET['mode'];
 
