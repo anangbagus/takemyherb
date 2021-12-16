@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 15 Des 2021 pada 14.09
+-- Waktu pembuatan: 16 Des 2021 pada 06.35
 -- Versi server: 10.4.13-MariaDB
 -- Versi PHP: 7.4.7
 
@@ -69,7 +69,7 @@ CREATE TABLE `pemesanan` (
 
 INSERT INTO `pemesanan` (`id_pemesanan`, `tgl_pemesanan`, `id_user`, `id_produk`, `quantity`, `total_harga`, `alamat_pengiriman`, `status`) VALUES
 (1, '2021-12-08 11:09:35', 3, 1, 2, 30000, 'Jl Melati nO 2', 3),
-(2, '2021-12-08 11:21:53', 6, 7, 2, 30000, 'jln unud ', 1),
+(2, '2021-12-08 11:21:53', 6, 7, 2, 30000, 'jln unud ', 0),
 (3, '2021-12-08 11:56:19', 5, 21, 2, 60000, 'jl. kevin space', 2),
 (4, '2021-12-08 11:58:30', 4, 22, 2, 50000, 'jl. dewata 90', 0),
 (5, '2021-12-08 11:59:12', 6, 16, 2, 70000, 'jln Mengkudu 289', 2),
@@ -253,7 +253,7 @@ ALTER TABLE `review`
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
