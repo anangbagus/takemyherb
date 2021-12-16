@@ -29,7 +29,7 @@
     };
 
     // pengambilan data pada tabel pemesanan
-    $pesanan = query("SELECT * FROM pemesanan");
+    $pesanan = query("SELECT ps.*, u.nama_user, p.nama_produk FROM pemesanan ps INNER JOIN user u ON ps.id_user = u.id_user INNER JOIN produk p ON ps.id_produk = p.id_produk");
 
     // penghitungan jumlah data pada tabel pemesanan
     $jumlah = query("SELECT COUNT(*) FROM pemesanan")[0];
@@ -79,8 +79,8 @@
                                     <tr>
                                         <td><?php echo $row["id_pemesanan"]; ?></td>
                                         <td><?=$row["tgl_pemesanan"]; ?></td>
-                                        <td><?=$row["id_user"]; ?></td>
-                                        <td><?=$row["id_produk"]; ?></td>
+                                        <td><?=$row["nama_user"]; ?></td>
+                                        <td><?=$row["nama_produk"]; ?></td>
                                         <td><?=$row["quantity"]; ?></td>
                                         <td><?=$row["total_harga"]; ?></td>
                                         <td><?=$row["alamat_pengiriman"]; ?></td>
