@@ -69,64 +69,140 @@ if (isset($_POST["submit"])) {
 
 <head>
     <title>Tambah produk</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <style type="text/css">
+        body {
+            color: #000;
+            overflow-x: hidden;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-color: rgb(238,238,238);
+        }
+
+        .card {
+            padding: 30px 40px;
+            margin-top: 60px;
+            margin-bottom: 60px;
+            border: none !important;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2)
+        }
+
+        .blue-text {
+            color: #00BCD4
+        }
+
+        .form-control-label {
+            margin-bottom: 0
+        }
+
+        input,
+        textarea,
+        button, select {
+            padding: 8px 15px;
+            border-radius: 5px !important;
+            margin: 5px 0px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            font-size: 18px !important;
+            font-weight: 300
+        }
+
+        input:focus,
+        textarea:focus {
+            -moz-box-shadow: none !important;
+            -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+            border: 1px solid #00BCD4;
+            outline-width: 0;
+            font-weight: 400
+        }
+
+        .btn-block {
+            text-transform: uppercase;
+            font-size: 15px !important;
+            font-weight: 400;
+            height: 43px;
+            cursor: pointer
+        }
+
+        .btn-block:hover {
+            color: #fff !important
+        }
+
+        button:focus {
+            -moz-box-shadow: none !important;
+            -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+            outline-width: 0
+        }
+    </style>
 </head>
 
 <body>
+    <div class="container-fluid px-1  mx-auto">
+        <div class="row d-flex justify-content-center">
+            <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+                <div class="card">
+                    <h4 class="text-center mb-4 d-inline text-success">Tambah produk</h4> 
+                    <h6 class="d-inline"></h6>
+                    
+                    <form action="" class="form-card" method="post" enctype="multipart/form-data">
+                        <div class="row justify-content-between text-left">
+                            <div class="form-group col-sm-6 flex-column d-flex"> 
+                                <label class="form-control-label px-3">Nama Produk</label> 
+                                
+                                <input type="text" name="nama_produk" id="nama_produk" required> 
+                            
+                            </div>
+                            <div class="form-group col-sm-6 flex-column d-flex"> 
+                                <label class="form-control-label px-3">Harga</label> 
 
-    <div class="wrap">
-        <span class="judul">
-            <h1><ins>Tambah produk</ins></h1><br>
-        </span>
-        <form action="" method="post">
-            <table>
-                <tr>
-                    <td> <label for="tipe">Tipe</label> </td>
-                    <td>:</td>
-                    <td>
-                        <select id="tipe" name="tipe">
-                            <option value="Bibit">Bibit</option>
-                            <option value="Benih">Benih</option>
-                            <option value="Pupuk">Pupuk</option>
-                            <option value="Alat">Alat</option>
-                        </select>
-                    </td></tr>
-                <tr>
-                    <td> <label for="nama_produk">Nama Produk</label> </td>
-                    <td>:</td>
-                    <td> <input type="text" name="nama_produk" id="nama_produk" required> </ </tr>
-
-                    <tr>
-                    <td> <label for="manfaat">Manfaat</label> </td>
-                    <td>:</td>
-                    <td> <input type="text" name="manfaat" id="manfaat" required> </ </tr>
-
-                <tr>
-                    <td> <label for="harga">Harga</label> </td>
-                    <td>:</td>
-                    <td> <input type="number" name="harga" id="harga" required> </td>
-                </tr>
-                <tr>
-                    <td> <label for="deskripsi">Deskripsi</label> </td>
-                    <td>:</td>
-                    <td> <input type="text" name="deskripsi" id="deskripsi" required> </ </tr>
-                <tr>
-                    <td> <label for="stok"> Stok </label> </td>
-                    <td>:</td>
-                    <td> <input type="number" name="stok" id="stok" required> </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td>
-                        <br>
-                        <button type="reset" name="submit">Reset</button>
-                        <button type="submit" name="submit">Simpan</button>
-                    </td>
-                </tr>
-                </tr>
-            </table>
-        </form>
+                                <input type="number" name="harga" id="harga" required>
+                            
+                            </div>
+                        </div>
+                        <div class="row justify-content-between text-left">
+                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Stok</label> 
+                                <input type="number" name="stok" id="stok" required>
+                             </div>
+                            
+                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Tipe</label> 
+                            
+                            <select id="tipe" name="tipe">
+                                <option value="Bibit">Bibit</option>
+                                <option value="Benih">Benih</option>
+                                <option value="Pupuk">Pupuk</option>
+                                <option value="Alat">Alat</option>
+                            </select>
+                            </div>
+                        
+                        </div>
+                        <div class="row justify-content-between text-left">
+                            <div class="form-group col-sm-12 flex-column d-flex"> 
+                                <label class="form-control-label px-3">Manfaat</label> 
+                                <input type="text" name="manfaat" id="manfaat" required>
+                            </div>
+                        </div>
+                        <div class="row justify-content-between text-left">
+                            <div class="form-group col-12 flex-column d-flex"> 
+                                <label class="form-control-label px-3"> Deskripsi </label> 
+                                
+                                <input type="text" name="deskripsi" id="deskripsi" required>
+                            </div>
+                        </div>
+                        <div class="row justify-content-end">
+                            <div class="form-group col-sm-12 mt-3"> 
+                                <button type="submit" name="submit" class="btn-block btn-success">Simpan</button> 
+                                <button type="reset" name="submit" class="btn-block btn-outline-success">Reset</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 
