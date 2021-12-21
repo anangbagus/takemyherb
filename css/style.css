@@ -1,3 +1,68 @@
+/* Start using BEM naming convention */
+/* green color :  rgb(25,135,84)*/
+
+/* font : montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap');
+
+.body{
+    background-color: rgb(238,238,238);
+}
+
+.profile--button{
+    background-color:#198754;
+	border-radius:28px;
+	border:1px solid #18ab29;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:17px;
+	padding:12px 18px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+    text-align: center;
+}
+
+.profile--button:hover{
+    background-color:#66944d;
+    color: black;
+}
+
+.profile--button:active{
+    position:relative;
+	top:1px;
+}
+
+.profile--card{
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    overflow: hidden;
+    /* box-shadow: 0 1px 4px 0 rgba(3, 22, 8, 0.2), 0 2px 6px 0 rgba(3, 20, 7, 0.19); */
+
+}
+
+.profile--container{
+    font-family: 'Montserrat';
+}
+
+.profile--table{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+
+}
+
+.profile--img{
+    border-radius: 100px;
+    object-fit: cover;
+    width: 10rem;
+    height: 10rem;
+    border-style: solid;
+    border-color: rgb(25,135,84) ;
+    box-shadow: 0 2px 5px 0 rgba(3, 22, 8, 0.2), 0 3px 10px 0 rgba(3, 20, 7, 0.19);
+}
+
 
 /* Testing */
 

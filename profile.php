@@ -25,31 +25,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- hard refresh css -->
+    <link rel="stylesheet" href="css/style.css?php echo time(); ?>">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Profile</title>
+    <title>Your Profile</title>
 </head>
-<body style="background-color: rgb(238,238,238);">
+<body class="body">
 
     <!-- navbar -->
     <?php include('_header.php'); ?>
 
-    <div class="container mt-4 mb-4 m-5 p-3 d-flex justify-content-center">
-        <div class="card p-5">
+    <div class="profile--container container mt-5 d-flex justify-content-center">
+        <div class="profile--card p-5">
             <h3 class="text-center text-success">Profile</h3>
-            <table>
+            <table class="profile--table">
             <?php foreach($user as $row):?>    
-            <div class="image d-flex flex-column justify-content-center align-items-center"> 
-                <button class="btn btn-secondary"> 
-                
-                <img src="https://i.imgur.com/wvxPV9S.png" height="100" width="100" />
-                </button> <h4><span class="name mt-3"><?= $row['nama_user'];?></span></h4>
+            <div class="d-flex flex-column justify-content-center align-items-center">            
+                <img class="profile--img mt-3" src="img/profile/3.jpg"/> 
+                <h4 class="mt-3">
+                    <span><?= $row['username'];?></span>
+                </h4>
                 <div class="d-flex flex-row justify-content-center align-items-center gap-2"> 
                     <tr>
-                        <td>Username</td>
+                        <td>Name</td>
                         <td>:</td>
-                        <td><?= $row['username'];?></td>
+                        <td><?= $row['nama_user'];?></td>
                     </tr>
                     <tr>
                         <td>Email</td>
@@ -67,7 +68,7 @@
             </div>
             <?php endforeach; ?>
             </table>
-            <a href="editprofile.php" class="btn1 btn-success mt-3">Edit Profile</a>
+            <a href="editprofile.php" class="profile--button mt-3">Edit Profile</a>
         </div>
     </div>
 
