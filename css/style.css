@@ -32,6 +32,22 @@
 	top:1px;
 }
 
+.profile--button__cancel{
+    background-color:#E74C3C;
+    text-shadow:0px 1px 0px rgb(199, 72, 72);
+    border:1px solid #E74C3C;
+}
+
+.profile--button__cancel:hover{
+    background-color:#a51707;
+    color: black;
+}
+
+.profile--button--container{
+    text-align: center;
+    font-family: "Montserrat";
+}
+
 .profile--card{
     width: 400px;
     display: flex;
@@ -62,6 +78,43 @@
     border-color: rgb(25,135,84) ;
     box-shadow: 0 2px 5px 0 rgba(3, 22, 8, 0.2), 0 3px 10px 0 rgba(3, 20, 7, 0.19);
 }
+
+.profile--img:hover{
+    opacity: 0.5;
+}
+
+.profile--img__upload{
+    font-size: 3rem;
+    color: aliceblue;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.profile--img--container{
+    position: relative;
+}
+
+.profile--form--input,
+input{
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 5px;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.profile--form--input:focus,
+input:focus{
+   background-color:#51a07ba8;
+}
+
+
 
 
 /* Testing */
