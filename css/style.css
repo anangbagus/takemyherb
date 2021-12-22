@@ -133,11 +133,28 @@
         color: black;
 }
 
-
-
-
 /* Cart Section End*/
 
+/* Product Section */
+
+.product--header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.product--header--search{
+    background-color: #E74C3C;
+    margin: 20px;
+}
+
+.product--header--title{
+    background-color: #E74C3C;
+    margin: 20px;
+}
+
+/* Product Section End */
 
 /* Profile Section */
 .profile--button{

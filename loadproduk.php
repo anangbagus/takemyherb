@@ -1,14 +1,27 @@
+<!-- php code -->
+<?php 
+
+require('config.php');
+$produk_types = query("SELECT tipe, COUNT(*) AS jumlah FROM produk GROUP BY tipe;");
+// inisialisasi nilai jumlah data
+$jumlah = query("SELECT COUNT(*) AS total FROM produk;")[0];
+
+?>
+
+
+
 <!-- product list -->
-<div class="container-fluid py-5">
-    <div class="container">
+    <div class="py-5 container">
         <div class="col-12 mb-4">
             <div class="row">
                 <div class="col-lg-3 col-md-4">
                     <div class="list-group">
-                        <?php
-                        require('config.php');
-                        $produk_types = query("SELECT tipe, COUNT(*) AS jumlah FROM produk GROUP BY tipe;");
-                        foreach($produk_types as $produk_type) : ?>
+                        <a href="google.com" class="list-group-item d-flex justify-content-between align-items-center">
+                            Semua Produk
+                            <span class="badge bg-primary rounded-pill"><?= $jumlah['total']; ?></span>
+                        </a>
+
+                        <?php foreach($produk_types as $produk_type) : ?>
                         <a href="google.com" class="list-group-item d-flex justify-content-between align-items-center"><?=$produk_type["tipe"]; ?>
                             <span class="badge bg-primary rounded-pill"><?=$produk_type["jumlah"]; ?></span>
                         </a>

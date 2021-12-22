@@ -21,8 +21,7 @@
         $produk = caritipeproduk($_POST["kategori"]);
     }
 
-    // inisialisasi nilai jumlah data
-    $jumlah = query("SELECT COUNT(*) FROM produk")[0];
+    
 ?>
 
 <!DOCTYPE html>
@@ -37,29 +36,22 @@
 <body>
 
     <?php include('_header.php'); ?>
-
-        <div class="px-3 py-2 border-bottom mb-3">
-        <div class="container d-flex flex-wrap justify-content-center">
-            <form class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto">
-            <input type="text" placeholder="Cari produk..." class="form-control" name="keyword" id="keyword" autofocus placeholder="Cari" autocomplete="off">
-            <!-- <input type="search" class="form-control" placeholder="Search..." aria-label="Search"> -->
+    <div class="product--header container">
+        <div class="product--header--search">
+            <form class="">
+                <input type="text" placeholder="Cari produk..." class="" name="keyword" id="keyword" autofocus placeholder="Cari" autocomplete="off">
+                <!-- <input type="search" class="form-control" placeholder="Search..." aria-label="Search"> -->
             </form>
-            <div class="text-end">
-                 <!-- menampilkan jumlah produk -->
-                <a>Jumlah produk: <?php echo $jumlah["COUNT(*)"];?>
-            </div>
-            
         </div>
-        <h2 class="text-center  "> Produk Kami</h2>
+        <div class="product--header--title">
+            <h2 class=""> Produk Kami</h2>
         </div>
-    
+    </div>
+        
 
-    <!-- menampilkan table -->
-     <table border="1" cellpadding="10" cellspacing="0"></table>
-    <br> <br>
-
-
-
+    <!-- Menampilkan produk -->
+    <div id="loadproduct"></div>
+    <br>
     <script>
         $(document).ready(function(){
 		load_data();
@@ -71,7 +63,7 @@
 				data: {keyword: keyword},
 				success:function(hasil)
 				{
-                    $('table').html(hasil);
+                    $('#loadproduct').html(hasil);
 				}
 			});
 	 	}
