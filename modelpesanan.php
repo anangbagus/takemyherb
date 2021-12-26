@@ -42,5 +42,15 @@ if(isset($_GET['mode'])){
             ";
         }
     }
+    elseif($_GET['mode'] == "cekpemesanan"){
+        $id_user = $_GET['id_user'];
+        $query = "SELECT * FROM pemesanan WHERE id_user = '$id_user'";
+        mysqli_query($koneksi, $query);
+        if(mysqli_affected_rows($koneksi)){
+        }
+        else{
+            die(header("HTTP/1.0 404 Not Found"));
+        }
+    }
 }
 ?>

@@ -8,6 +8,12 @@ if(!isset($_SESSION['username'])){
     </script>";
 };
 
+$username = $_SESSION['username'];
+$users = query("SELECT * FROM `user` WHERE username = '$username'");
+foreach($users as $user):
+    $id_user = $user['id_user'];
+endforeach;
+
 if(isset($_GET['id_produk'])){
     $id_produk = $_GET['id_produk'];
     $produk = query("SELECT * FROM produk WHERE id_produk = $id_produk");
@@ -21,7 +27,7 @@ if(isset($_GET['id_produk'])){
     endforeach;
     $query = "UPDATE produk SET viewed = $viewed WHERE id_produk = $id_produk";
     mysqli_query($koneksi, $query);
-    $reviews = query("SELECT r.*, u.* FROM review r INNER JOIN user u ON u.id_user = r.id_user WHERE id_produk = $id_produk");
+    $reviews = query("SELECT r.*, u.* FROM review r INNER JOIN user u ON u.id_user = r.id_user WHERE id_produk = $id_produk ORDER BY tgl_review DESC");
 }
 else{
     header("location: market.php");
@@ -78,6 +84,9 @@ else{
                         <td><?= $review['nama_user']; ?></td>
                         <td><?= $review['ulasan']; ?></td>
                         <td><?= $review['tgl_review']; ?></td>
+                        <td id="<?= $review['id_review'] ?>">
+                            <button>Balas</button>
+                        </td>
                     </tr>
                 <?php endforeach; ?>
             </table>
@@ -86,18 +95,29 @@ else{
     <script>
         $(document).ready(function(){
             $('#kirim').click(function(){
-                var text = $("#review").val();
                 $.ajax({
-                    method:"POST",
-                    url:"modelreview.php",
-                    data: {text: text, id_produk: <?= $id_produk?>},
-                    success:function(response)
-                    {
-                        alert("Komentar ditambahkan.");
+                    method: "GET",
+                    url: "modelpesanan.php",
+                    data: {mode: "cekpemesanan", id_user: <?= $id_user; ?>},
+                    success: function(response){
+                        var text = $("#review").val();
+                        $.ajax({
+                            method:"POST",
+                            url:"modelreview.php",
+                            data: {text: text, id_produk: <?= $id_produk?>},
+                            success:function(response)
+                            {
+                                alert("Komentar ditambahkan.");
+                                // REMINDER: tambah autoload
+                            },
+                            error: function (xhr, ajaxOptions, thrownError) {
+                                alert(xhr.status);
+                                alert(thrownError);
+                            }
+                        });
                     },
-                    error: function (xhr, ajaxOptions, thrownError) {
-                        alert(xhr.status);
-                        alert(thrownError);
+                    error: function(response){
+                        alert("Anda belum melakukan pemesanan atau status pesanan anda belum dikonfirmasi.");
                     }
                 });
             });
