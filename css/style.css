@@ -6,6 +6,7 @@
 /* font : inter */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap');
 
+
 .body{
     background-color: rgb(238,238,238);
 }
@@ -245,8 +246,7 @@
     position: relative;
 }
 
-.profile--form--input,
-input{
+.profile--form--input, input{
     outline: 0;
     background: #f2f2f2;
     width: 100%;
@@ -257,12 +257,72 @@ input{
     font-size: 14px;
 }
 
-.profile--form--input:focus,
-input:focus{
+.profile--form--input:focus, input:focus{
    background-color:#51a07ba8;
 }
 
 /* Profile Section Ends */
+
+
+/* Product Section */
+
+.produk--main{
+    padding: 0 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid lightgray;
+}
+
+
+.produk--search--bar{
+    padding: 5px 25px;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.produk--search--form{
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 260px;
+    margin-right: 20px;
+}
+s
+.produk--search--input{
+    height: 20px;
+    width: 100%;
+    padding: 5px 10px 5px 40px;
+    color: rgba(0, 0, 0, 0.05);  
+    border: 0px;
+    background: url(https://i.imgur.com/lrQiTER.png) no-repeat 1%;
+    background-size: 20px;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.produk--search--button
+
+
+/* Product Section Ends */
+
+
+/* Sidebar Section */
+
+.sidebar--profile{
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    
+}
+
+.sidebar--card{
+    width: 400px;
+   
+    overflow: hidden;
+    /* box-shadow: 0 1px 4px 0 rgba(3, 22, 8, 0.2), 0 2px 6px 0 rgba(3, 20, 7, 0.19); */
+}
+
+/* Sidebar Section Ends */
 
 
 /* Testing */
