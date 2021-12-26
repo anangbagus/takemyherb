@@ -50,10 +50,10 @@ $jumlah = query("SELECT COUNT(*) AS total FROM produk;")[0];
                             </div>
                             
                             <a class="market--text" href="addkeranjang.php?id_produk=<?= $row['id_produk'];?>" onclick="return confirm('Masukkan item ke keranjang?')">
-                                <button class="btn btn-success btn-sm mt-2" value="Checkout" name="checkout"> <i class="bi bi-cart-plus"></i>Tambah</button>
+                                <button class="market--button" value="Checkout" name="checkout"> <i class="bi bi-cart-plus"></i>Tambah</button>
                             </a>
                             <a class="market--text" href="detailproduk.php?id_produk=<?=$row["id_produk"]?>" class="">
-                                <button class="btn bg-light mt-2" > <i class="bi bi-eye"></i>Lihat</button>
+                                <button class="market--button market--button--view" > <i class="bi bi-eye"></i>Lihat</button>
                             </a>
                         </div>
                         </div>

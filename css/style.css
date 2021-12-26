@@ -1,5 +1,5 @@
 /* Start using BEM naming convention */
-/* green color :  rgb(25,135,84)*/
+/* green color :  rgb(25,135,84) #198754*/
 
 /* font : montserrat */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap');
@@ -157,27 +157,37 @@
     font-weight: 600;
 }
 
-.market--button--view{
-    text-decoration: none;
-    border: none;
-    padding: 12px 40px;
-    font-size: 16px;
-    background-color: green;
-    color: #fff;
-    border-radius: 5px;
-    box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
-    cursor: pointer;
-    outline: none;
-    transition: 0.2s all;
+.market--button{
+    background-color:#198754;
+    border-radius:18px;
+    border:0px solid #ffffff;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-size:14px;
+    padding:7px 15px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #2f6627;
+    text-align: center;
 }
 
-.market--button--view:active{
-    transform: scale(0.98);
-    /* Scaling button to 0.98 to its original size */
-    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
-    /* Lowering the shadow */
+.market--button:hover{
+    background-color:#66944d;
+    color: black;
 }
-  
+
+.market--button:active{
+    position:relative;
+    top:1px;
+}
+
+.market--button--view{
+    background-color:#eee;
+    color:#198754;
+    font-size:14px;
+}
+
+
 .market--desc{
     margin: 0px;
 }
@@ -204,6 +214,8 @@
 
 .product--header--title{
     margin: 20px;
+    font-family: Montserrat;
+    font-weight: bold;
 }
 
 /* Market Section End */
@@ -350,7 +362,6 @@
     background-size: 20px;
     background-color: rgba(0, 0, 0, 0.05);
 }
-
 
 /* Product Section Ends */
 
