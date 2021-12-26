@@ -75,25 +75,24 @@ else{
             <br>
             <button id="kirim">Kirim</button>
         </div>
-        <div class="posted-comment">
-            <label>Komentar:</label>
-            <br>
-            <table>
-                <?php foreach($reviews as $review): ?>
-                    <tr>
-                        <td><?= $review['nama_user']; ?></td>
-                        <td><?= $review['ulasan']; ?></td>
-                        <td><?= $review['tgl_review']; ?></td>
-                        <td id="<?= $review['id_review'] ?>">
-                            <button>Balas</button>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
-            </table>
-        </div>
+        <!-- Show Review List by AJAX -->
+        <div class="posted-comment"></div>
     </div>
     <script>
         $(document).ready(function(){
+            function load_review(id_produk)
+            {
+                $.ajax({
+                    method:"POST",
+                    url:"loadreview.php",
+                    data: {id_produk: id_produk},
+                    success:function(hasil)
+                    {
+                        $('.posted-comment').html(hasil);
+                    }
+                });
+            }
+            load_review(<?= $id_produk?>);
             $('#kirim').click(function(){
                 $.ajax({
                     method: "GET",
@@ -108,7 +107,7 @@ else{
                             success:function(response)
                             {
                                 alert("Komentar ditambahkan.");
-                                // REMINDER: tambah autoload
+                                load_review(<?= $id_produk?>);
                             },
                             error: function (xhr, ajaxOptions, thrownError) {
                                 alert(xhr.status);
