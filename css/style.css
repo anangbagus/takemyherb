@@ -288,7 +288,7 @@
     flex-basis: 260px;
     margin-right: 20px;
 }
-s
+
 .produk--search--input{
     height: 20px;
     width: 100%;
@@ -300,30 +300,40 @@ s
     background-color: rgba(0, 0, 0, 0.05);
 }
 
-.produk--search--button
-
 
 /* Product Section Ends */
 
 
-/* Sidebar Section */
-
-.sidebar--profile{
-    display: flex;
-    flex-direction: row;
-    align-self: center;
-    
+/* User Section */
+.user--button{
+    font-size: 30px;
 }
 
-.sidebar--card{
+.user--card{
     width: 400px;
-   
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     overflow: hidden;
+    border: 0px;
     /* box-shadow: 0 1px 4px 0 rgba(3, 22, 8, 0.2), 0 2px 6px 0 rgba(3, 20, 7, 0.19); */
 }
 
-/* Sidebar Section Ends */
+.user--image{
+    width: 100px;
+}
 
+.user--search--bar{
+    background: url(https://i.imgur.com/lrQiTER.png) no-repeat 1%;
+    background-size: 20px;
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 5px 10px 5px 40px;
+}
+
+
+/* User Section Ends */
 
 /* Testing */
 
