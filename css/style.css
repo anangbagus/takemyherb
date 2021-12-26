@@ -136,6 +136,66 @@
 
 /* Cart Section End*/
 
+
+/* Checkout Section */
+
+.checkout--body{
+    font-family: Inter;
+}
+
+.checkout--title{
+    font-family: Montserrat;
+    font-weight: 500;
+    font-size: 2rem;
+}
+
+
+.checkout--button{
+    width: 10rem;
+    background-color:#198754;
+    border-radius:28px;
+    border:0px solid #ffffff;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-size:1rem;
+    padding:10px 20px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #2f6627;
+    text-align: center;
+    margin: 10px auto;
+}
+
+.checkout--button:hover{
+    background-color:#66944d;
+    color: black;
+}
+
+.checkout--button:active{
+    position:relative;
+    top:1px;
+}
+
+.checkout--desc{
+    font-size: 15px;
+}
+
+.checkout--search{
+    display: inline-block   ;
+}
+
+.checkout--image{
+    object-fit: cover;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #2f6627;
+}
+
+
+
+/* Checkout Section Ends */
+
+
 /* Market Section */
 
 
