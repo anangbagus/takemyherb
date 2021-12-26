@@ -136,26 +136,77 @@
 
 /* Cart Section End*/
 
-/* Product Section */
+/* Market Section */
 
-.product--header{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+
+.market{
+    font-family: "Inter"; 
 }
 
+.market--price{
+    margin-bottom: 0px;
+    font-size: 0.9rem;
+}
+
+.market--text{
+    text-decoration: none;
+}
+
+.market--title{
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.market--button--view{
+    text-decoration: none;
+    border: none;
+    padding: 12px 40px;
+    font-size: 16px;
+    background-color: green;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
+    cursor: pointer;
+    outline: none;
+    transition: 0.2s all;
+}
+
+.market--button--view:active{
+    transform: scale(0.98);
+    /* Scaling button to 0.98 to its original size */
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+    /* Lowering the shadow */
+}
+  
+.market--desc{
+    margin: 0px;
+}
+
+.market--search{
+    padding: 5px 10px 5px 40px;
+    color: rgba(0, 0, 0, 0.05);  
+    border: 0px;
+    height: 2rem;
+    background: url(https://i.imgur.com/lrQiTER.png) no-repeat 1%;
+    background-size: 20px;
+    background-color: rgba(0, 0, 0, 0.05); 
+    border-radius: 2px; 
+}
+
+ .market--search:focus{
+    background-color: rgba(36, 35, 35, 0.158);
+    color: black;
+ }
 
 .product--header--search{
-    background-color: #E74C3C;
     margin: 20px;
 }
 
 .product--header--title{
-    background-color: #E74C3C;
     margin: 20px;
 }
 
-/* Product Section End */
+/* Market Section End */
 
 /* Profile Section */
 .profile--button{
