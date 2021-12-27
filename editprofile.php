@@ -37,8 +37,17 @@
         $email = $_POST['email'];
         $username = $_POST['username'];
         $phone = $_POST['phone'];
+        $filename = $_FILES["imgupload"]["name"];
+        $tempname = $_FILES["imgupload"]["tmp_name"];    
+        $folder = "img/profile/".$filename;
     
-        mysqli_query($koneksi,"UPDATE user SET nama_user = '$nama', email = '$email', username = '$username', hp = '$phone' WHERE id_user = '$id'");
+        mysqli_query($koneksi,"UPDATE user SET nama_user = '$nama', email = '$email', username = '$username', hp = '$phone', `image` = '$filename' WHERE id_user = '$id'");
+
+        if (move_uploaded_file($tempname, $folder))  {
+            $msg = "Image uploaded successfully";
+        }else{
+            $msg = "Failed to upload image";
+        }
 
         if($who == 1){
             $sql = "SELECT * FROM user WHERE username = '$session_username'";
@@ -74,11 +83,12 @@
         <div class="profile--card p-5">
             <h3 class="text-center text-success"> Edit Profile </h3>
             <table class="profile--table">
-            <form action="" method="POST">
+            <form action="" method="POST" enctype="multipart/form-data">
             <?php foreach($user as $row): ?>  
-            <div class="d-flex flex-column justify-content-center align-items-center">  
-                <div class="profile--img--container mt-3">
-                    <img class="profile--img" src="img/profile/3.jpg" />
+            <div class="d-flex flex-column justify-content-center align-items-center">
+                <input type="file" id="imgupload" name="imgupload" style="display:none"/>
+                <div class="imgUpload profile--img--container mt-3">
+                    <img class="profile--img" src="img/profile/<?= $row['image']; ?>" />
                     <i class="profile--img__upload bi bi-arrow-bar-up"></i>   
                     <!-- <img class="" src="https://img.icons8.com/material-outlined/24/000000/upload--v1.png"/> -->
                 </div>
@@ -119,7 +129,7 @@
                         <div class="d-flex">
                             <input type="submit" value="Update" class="profile--button mt-3" name="update">
                             <div class="m-1"></div>
-                            <input type="submit" value="Batal" class="profile--button profile--button__cancel mt-3" name=""> 
+                            <input class="profile--button profile--button__cancel mt-3" action="action" onclick="window.history.go(-1); return false;" type="submit" value="Batal"/>
                         </div>
                     </td>
                 </tr>
@@ -131,5 +141,10 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+            $('.imgUpload').click(function(){$('#imgupload').trigger('click')});
+        });
+    </script>
 </body>
 </html>

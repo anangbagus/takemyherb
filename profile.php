@@ -42,7 +42,7 @@
             <table class="profile--table">
             <?php foreach($user as $row):?>    
             <div class="d-flex flex-column justify-content-center align-items-center">            
-                <img class="profile--img mt-3" src="img/profile/3.jpg"/> 
+                <img class="profile--img mt-3" src="img/profile/<?= $row['image']; ?>"/> 
                 <h4 class="mt-3">
                     <span><?= $row['username'];?></span>
                 </h4>
