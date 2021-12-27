@@ -55,4 +55,11 @@ function caritipeproduk($id){
     return query($query);
 }
 
+function cekreply($id_review){
+    $koneksi = mysqli_connect("localhost", "root", "", "takemyherb");
+    $query = "SELECT * FROM reply WHERE id_review = '$id_review'";
+    $result = mysqli_query($koneksi, $query);
+    return $result->num_rows;
+}
+
 ?>

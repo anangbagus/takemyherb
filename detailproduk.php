@@ -1,5 +1,5 @@
 <?php
-require "config.php";
+require_once "config.php";
 session_start();
 
 if(!isset($_SESSION['username'])){
@@ -27,7 +27,6 @@ if(isset($_GET['id_produk'])){
     endforeach;
     $query = "UPDATE produk SET viewed = $viewed WHERE id_produk = $id_produk";
     mysqli_query($koneksi, $query);
-    $reviews = query("SELECT r.*, u.* FROM review r INNER JOIN user u ON u.id_user = r.id_user WHERE id_produk = $id_produk ORDER BY tgl_review DESC");
 }
 else{
     header("location: market.php");
