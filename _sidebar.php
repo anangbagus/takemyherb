@@ -1,10 +1,13 @@
+<?php 
+    $photo_admin = query("SELECT * FROM user WHERE id_user=0")[0]["image"];
+?>
 <div class="col-lg-3 col-md-4">
     <!-- sidebar -->
     <div class="p-3 text-white bg-dark" style=" display: flex; flex-direction: column; border-radius: 20px; box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
         <ul class="nav nav-pills flex-column mb-auto">
             <li>
                 <a href="" class="sidebar--profile nav-link text-white">
-                    <i class=" bi bi-person-circle" style="font-size:30px; margin-right:10px"></i> 
+                    <img src="img/profile/<?= $photo_admin?>" style="width:30px; margin-right:10px;"> 
                     <i  style="font-size:20px;">Admin</i>
                 </a>                      
             </li>

@@ -71,7 +71,7 @@ if (isset($_POST['submit'])) {
     href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.1/mdb.min.css" rel="stylesheet"
     />
     <link rel="stylesheet" type="text/css" href="css/style.css">
- 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <title>Login</title>
 </head>
 <body>
@@ -85,10 +85,10 @@ if (isset($_POST['submit'])) {
         <div class="container py-5 h-100">
             <div class="row d-flex align-items-center justify-content-center h-100">
             <div class="col-md-8 col-lg-7 col-xl-6">
-                <img src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-login-form/draw2.svg" class="img-fluid" alt="Phone image">
+                <img src="img/login_register/login.png" class="img-fluid" alt="Phone image">
             </div>
             <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Login TakeMyHerb</p>
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4"><i>Login</i> <i style="color:#198754" class="bi bi-flower3"> </i><span style="color:#198754"> TakeMyHerb</span></p>
 
                 <form action="" method="POST">
                 <!-- Email input -->
@@ -105,11 +105,11 @@ if (isset($_POST['submit'])) {
                 </div>
 
                 <!-- Submit button -->
-                <button type="submit" name="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
+                <button type="submit" name="submit" style="background-color:#198754" class="btn btn-primary btn-lg btn-block">Sign in</button>
 
                 <div class="d-flex justify-content-around align-items-center mt-4">
                     <!-- Checkbox -->
-                    <p class="login-register-text">Anda belum punya akun? <a href="register.php">Register</a></p>
+                    <p class="login-register-text">Anda belum punya akun? <a style="color:#198754" href="register.php"><b>Register</b></a></p>
                 </div>
 
                 
