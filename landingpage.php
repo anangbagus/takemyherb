@@ -20,13 +20,13 @@
     <nav class="navbar navbar-light bg-light">
     <div class="container-fluid">
         <a class="navbar-brand text-success" href="#">
-            <i class="fa fa-envira text-success"></i> Take My Herb
+            <i class="bi bi-flower3"></i> Take My Herb
         </a>
         <div class="text-end">
-            <a href="index.php">
+            <a style="text-decoration: none;" href="index.php">
             <button class="btn btn-success btn-sm mt-2" > Login </button>
             </a>
-            <a href="register.php">
+            <a style="text-decoration: none;" href="register.php">
             <button class="btn btn-outline-success btn-sm mt-2" > Register </button>    
             </a>
         </div>
@@ -48,7 +48,7 @@
                         <div class="row">
                             <div class="col-12 col-md-3" style="margin: auto;">
                                 <a href="index.php">
-                                    <button class="btn btn-success btn-lg " style="margin: auto;" type="submit">Jelajahi</button>
+                                    <button class="btn btn-success btn-lg" style="margin: auto;" type="submit">Jelajahi</button>
                                 </a>     
                             </div>
                         </div>
@@ -118,24 +118,25 @@
 
                         foreach($low_price_products as $row) : ?>
                         <div class="col-lg-3 col-md-4 col-sm-6 mb-5">
-                            <a href="detailproduk.php?id_produk=<?=$row["id_produk"]?>" class="test">
-                            <div class="card ">
+                            <div class="card">
                                 <img src="img/<?=$row["foto"]; ?>.jpg" class="card-img-top" style="height: 200px; object-fit: cover;"  alt="<?=$row["nama_produk"]; ?>">
                                 <div class="card-body">
-                                    <h5 class="card-title"><?=$row["nama_produk"]; ?>
-                                        <span class="badge bg-success rectangle-pill"><?=$row["stok"]; ?></span>
-                                    </h5> 
-                                    <div class="text-truncate">
-                                        <?=$row["deskripsi"]; ?>
+                                    <span class="market--title card-title"><?=$row["nama_produk"]; ?> </span> 
+                                        <!-- <span class="badge bg-success rectangle-pill"><?=$row["stok"]; ?></span> -->
+                                        <span class="market--price"><b class="text-success"> Rp.<?=$row["harga"]; ?>,00 </b></span>
+                                    <div class="mb-2 mt-2 market--desc text-truncate">
+                                        <?=$row["manfaat"]; ?>
                                     </div>
-                                    <p class="font-monospace text-black"> Rp.<?=$row["harga"]; ?>,00</p>
-                                    <a href="index.php">
-                                        <button class="btn btn-success btn-sm mt-2" value="Checkout" name="checkout"> Beli sekarang </button>
+                                    
+                                    <a class="market--text" href="index.php">
+                                        <button class="market--button" value="Checkout" name="checkout"> <i class="bi bi-box-arrow-in-right"></i> Beli Sekarang</button>
                                     </a>
                                 </div>
                                 </div>
                                 </a>
                             </div>
+                            
+                            
                         <?php endforeach; ?>
                         </div>
                     </div>

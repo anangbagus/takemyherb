@@ -41,8 +41,6 @@
                 <div class="row">
 
                     <?php include('_sidebar.php'); ?>
-
-
 					<div class="col-lg-9 col-md-8 ">
                         
                         <h1 class="text-center">Data Akun</h1>

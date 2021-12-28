@@ -21,7 +21,7 @@
         <div class="user--card container col-md-12 mt-3 mb-3">
             <div class="row p-2 bg-white">
                 <div class="col-md-2 mt-1">
-                    <img class="user--image img-fluid img-responsive rounded product-image" src="img/profile/2.jpg"></div>
+                    <img class="user--image img-fluid img-responsive rounded product-image" src="img/profile/<?=$row["image"]; ?>"></div>
                 <div class="col-md-8">
                     <table>
                         <tr>

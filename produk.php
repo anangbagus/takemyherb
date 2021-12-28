@@ -74,7 +74,7 @@
                         </div>
                         <div class="col-lg-6 produk--search--bar  align-self-center">
                             <form style="display: flex; flex-grow: 1; flex-shrink: 0; flex-basis: 260px; margin-right: 20px;" class="produk--search--form" action="" method="post">
-                                <input style="padding: 5px 10px 5px 40px; background: url(https://i.imgur.com/lrQiTER.png) no-repeat 1%;  background-color:#f2f2f2; background-size: 20px;" class="col-lg-8 produk--search--input" type="text" name="keyword" autocomplete="off">
+                                <input class="col-lg-8 produk--search--input" type="text" name="keyword" autocomplete="off">
                                 <button style="border: none; background-color: rgb(25,135,84) ; color: white;" class="col-lg-4 produk--search--button" type="submit" name="cari">Cari</button>
                             </form>
                         </div>
