@@ -24,6 +24,8 @@ if(isset($_GET['id_produk'])){
         $deskripsi = $row['deskripsi'];
         $stok = $row['stok'];
         $viewed = $row['viewed'] + 1;
+        $tipe = $row['tipe'];
+        $gambar = $row['foto'];
     endforeach;
     $query = "UPDATE produk SET viewed = $viewed WHERE id_produk = $id_produk";
     mysqli_query($koneksi, $query);
@@ -39,17 +41,92 @@ else{
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <style>
-        table, tr, td {
-            border: 1px solid black;
-            border-collapse: collapse;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style_detailpesanan.css">
     <title>Detail Produk</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </head>
-<body>
-    <div class="content">
+<body class="body">
+    <?php include('_header.php'); ?>
+    <div class="detail--container">
+        <div class="detail--items detail--left">
+            <div>
+                <img class="detail--items--image"src="img/<?=$gambar; ?>.jpg" style="height: 400px; object-fit: cover;"  alt="<?=$gambar; ?>">
+                <center>
+                    <i class="bi bi-eye"></i><?= $viewed; ?>
+                </center> 
+            </div>
+            <div class="detail--items--product">
+                <div class="input-comment">
+                    <label>Berikan komentar anda:</label>
+                    <br>
+                    <input class="detail--search" type="text" name="review" id="review" placeholder="Comment...">
+                    <button class="detail--button" id="kirim">Kirim</button>
+                </div>
+            </div>
+            
+            <!-- <img class="detail--img" src="img/1 kemangi.jpg"> </img> -->
+        </div>
+        <div class="detail--items detail--right">
+            <div class="detail--items--product">
+                <div class="detail--type">
+                    <p>
+                        <i class="bi bi-bag-dash-fill"></i> <?= $tipe; ?>
+                    </p>
+                </div>
+                <div class="detail--title">
+                    <h1>
+                        <?= $nama; ?>
+                    </h1>
+                </div>
+                <div class="detail--price">
+                    <h3>
+                        Rp.<?= $harga; ?>,00
+                    </h3>
+                </div>
+                <div class="detail--star">
+                    <h5>
+                        Stock : <?= $stok; ?>
+                    </h5>
+                </div>
+                <div class="detail--desc">
+                    <p class="detail--desc--p">
+                        <span>
+                            <i class="bi bi-hash"></i> <?= $manfaat; ?>
+                        </span>
+                        <br>
+                        <?= $deskripsi; ?>
+                    </p>
+                </div>
+                <div class="detail--qty">
+                    <!-- <p>
+                    Masukkan jumlah: 
+                    </p>
+                    <input type="text"> -->
+                </div>
+                <div class="detail--addtocart mt-3">
+                    <a href="addkeranjang.php?id_produk=<?= $id_produk?>" onclick="return confirm('Masukkan item ke keranjang?')">
+                        <button class="detail--button" value="Checkout" name="checkout"> <i class="bi bi-cart-plus"></i> Masukkan ke Keranjang </button>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <div class="comment">
+                    
+                    <!-- Show Review List by AJAX -->
+                    <div class="posted-comment"></div>
+                </div>
+            </div>
+            
+
+            
+        </div>    
+    </div>
+
+
+
+    <!-- <div class="content">
         <table>
             <tr>
                 <td><?= $nama; ?></td>
@@ -65,18 +142,8 @@ else{
                 </td>
             </tr>
         </table>
-    </div>
-    <div class="comment">
-        <div class="input-comment">
-            <label>Berikan komentar anda:</label>
-            <br>
-            <input type="text" name="review" id="review" placeholder="Comment...">
-            <br>
-            <button id="kirim">Kirim</button>
-        </div>
-        <!-- Show Review List by AJAX -->
-        <div class="posted-comment"></div>
-    </div>
+    </div> -->
+
     <script>
         $(document).ready(function(){
             function load_review(id_produk)
@@ -121,5 +188,6 @@ else{
             });
         });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>

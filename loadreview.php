@@ -5,38 +5,52 @@ $id_produk = $_POST['id_produk'];
 $reviews = query("SELECT r.*, u.* FROM review r INNER JOIN user u ON u.id_user = r.id_user WHERE id_produk = $id_produk ORDER BY tgl_review DESC");
 ?>
 
-<div class="posted-comment">
-    <label>Komentar:</label>
-    <br>
+
+<div class="detail--review">
+    <div class="detail--review--title mb-3">
+        <h3>
+            Review 
+        </h3>
+    </div>
     <table>
-        <?php foreach($reviews as $review): ?>
-            <tr id="review-<?= $review['id_review']; ?>">
-                <td><?= $review['nama_user']; ?></td>
-                <td><?= $review['ulasan']; ?></td>
-                <td><?= $review['tgl_review']; ?></td>
-                <td>
-                    <button id="show-replybox-<?= $review['id_review']; ?>" class="reply">Balas</button>
-                    <?php if(cekreply($review['id_review']) != 0){ ?>
-                        <button id="show-reply-<?= $review['id_review']; ?>" class="show-reply">Lihat Balasan</button>
-                    <?php } ?>
-                </td>
-            </tr>
-            <!-- Show Reply if Exist -->
-            <tr class="replies-<?= $review['id_review']; ?>" hidden>
-                <td colspan="4"></td>
-            </tr>
-            <!-- Reply Form -->
-            <tr id="replybox-<?= $review['id_review']; ?>" hidden>
-                <td colspan="4">
-                    <label>Berikan balasan anda:</label>
-                    <br>
-                    <input type="text" name="reply" id="text-reply-<?= $review['id_review']; ?>" placeholder="Reply...">
-                    <button id="reply-<?= $review['id_review']; ?>" class="kirim-reply">Kirim</button>
-                </td>
-            </tr>
-        <?php endforeach; ?>
+    <?php foreach($reviews as $review): ?>
+    <div class="detail--review--name">
+        <p>
+            <b><?= $review['nama_user']; ?></b>
+            pada <?= $review['tgl_review']; ?>
+        </p>
+    </div>
+    <div class="detail--review--opinion">
+        <p>
+            <?= $review['ulasan']; ?> 
+        </p>
+    </div>
+    <div class="detail--review--button">
+        <button id="show-replybox-<?= $review['id_review']; ?>" class="detail--button reply">Balas</button>
+        <?php if(cekreply($review['id_review']) != 0){ ?>
+            <button id="show-reply-<?= $review['id_review']; ?>" class="detail--button show-reply">Lihat Balasan</button>
+        <?php } ?>
+    </div>
+    <div>
+        <tr class="replies-<?= $review['id_review']; ?>" hidden>
+            <td colspan="4"></td>
+        </tr>
+        <!-- Reply Form -->
+        <tr id="replybox-<?= $review['id_review']; ?>" hidden>
+            <td colspan="4">
+                <label>Berikan balasan anda:</label>
+                <br>
+                <input type="text" name="reply" id="text-reply-<?= $review['id_review']; ?>" placeholder="Reply...">
+                <button id="reply-<?= $review['id_review']; ?>" class="detail--button kirim-reply">Kirim</button>
+            </td>
+        </tr>
+    </div>
+    <?php endforeach; ?>
     </table>
 </div>
+
+
+
 <script>
     $(document).ready(function(){
         $('.reply').click(function(){

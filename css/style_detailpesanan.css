@@ -1,0 +1,132 @@
+/* font : montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap');
+/* font : inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap');
+
+
+/* Khusus untuk bagian detail pesanan, buat coba-coba belajar flexbox */
+
+.bg-red {
+    background-color: red;
+    height: 200px;
+}
+
+.bg-blue {
+    background-color: blue;
+    height: 200px;
+}
+
+.bg-yellow {
+    background-color: rgb(255, 208, 0);
+    height: 200px;
+}
+
+/* Start from here */
+
+h1,h2,h3,h5,p{
+    padding: 0px;
+    margin: 0px;
+}
+
+.body{
+    background-color: rgb(238,238,238);
+}
+
+.detail--button{
+    background-color:#198754;
+    border-radius:28px;
+    border:1px solid #18ab29;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-size:14px;
+    padding:6px 15px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #2f6627;
+    text-align: center;
+}
+
+.detail--button:hover{
+    background-color:#66944d;
+    color: black;
+}
+
+.detail--button:active{
+    position:relative;
+    top:1px;
+}
+
+.detail--container{
+    display: flex;
+    margin-left: 5%;
+    margin-right: 5%; 
+    margin-top: 2%;
+}
+
+
+.detail--desc--p{
+    max-width: 70%;
+}
+
+.detail--items + .detail--items{
+    margin-left: 2%;
+}
+
+.detail--items--image{
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #2f6627;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.detail--items--product{
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    overflow: hidden;
+    font-family: "Inter";
+}
+
+.comment{
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    overflow: hidden;
+    font-family: "Inter";
+}
+
+.detail--right{
+    flex-grow: 3;
+}
+
+.detail--image{
+    object-fit: cover;
+    width: 8rem;
+    height: 8rem;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #2f6627;
+}
+
+.detail--search{
+    padding: 5px 10px 5px 10px;
+    color: rgba(0, 0, 0, 0.05);  
+    border: 0px;
+    height: 2rem;
+    background-size: 20px;
+    background-color: rgba(0, 0, 0, 0.05); 
+    border-radius: 2px; 
+}
+
+ .detail--search:focus{
+    background-color: rgba(36, 35, 35, 0.158);
+    color: black;
+ }
+
+
+.detail--title{
+    color: #198754;
+}
