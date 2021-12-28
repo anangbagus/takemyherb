@@ -102,6 +102,7 @@ h1,h2,h3,h5,p{
     flex-grow: 3;
 }
 
+
 .detail--image{
     object-fit: cover;
     width: 8rem;

@@ -24,6 +24,14 @@
             AND nama_produk LIKE '%$keyword%'
             ";
         }
+
+        if(isset($_POST["sort_by"]))
+        {
+            $sort_by_filter = implode(",", $_POST["sort_by"]);
+            $query_ .="
+            ORDER BY $sort_by_filter
+            ";
+        }
         
 
     }

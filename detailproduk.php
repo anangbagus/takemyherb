@@ -26,6 +26,7 @@ if(isset($_GET['id_produk'])){
         $viewed = $row['viewed'] + 1;
         $tipe = $row['tipe'];
         $gambar = $row['foto'];
+        $tgl_ditambahkan = $row['tgl_ditambahkan'];
     endforeach;
     $query = "UPDATE produk SET viewed = $viewed WHERE id_produk = $id_produk";
     mysqli_query($koneksi, $query);
@@ -89,6 +90,13 @@ else{
                     <h5>
                         Stock : <?= $stok; ?>
                     </h5>
+                </div>
+                <div class="detail--date">
+                    <p class="detail--date--p">
+                        <span>
+                            Ditambahkan tanggal <?= $tgl_ditambahkan; ?>.
+                        </span>
+                    </p>
                 </div>
                 <div class="detail--desc">
                     <p class="detail--desc--p">

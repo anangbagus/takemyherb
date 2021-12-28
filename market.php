@@ -33,7 +33,7 @@
 <title>Produk</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-<link rel="stylesheet" href="css/style.css?php echo time(); ?>">
+<link rel="stylesheet" href="css/style.css">
 
 <!-- JQueryUI -->
 <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
@@ -70,14 +70,14 @@
             <div class="col-lg-3 col-md-4"> 
                 
                 <div>
-                    <a href="#" class="list-group-item d-flex justify-content-between align-items-center">
-                        Semua Produk
+                    <div class="mb-5 list-group-item d-flex justify-content-between align-items-center">
+                        Total Semua Produk
                         <span class="badge bg-success rounded-pill"><?= $jumlah['total']; ?></span>
-                    </a>
+                    </div>
                 </div>    
 
 
-                <div class="list-group">
+                <div class="list-group mb-5">
 					<h3>Harga</h3>
 					<input type="hidden" id="hidden_minimum_price" value="0" />
                     <input type="hidden" id="hidden_maximum_price" value="<?= $minmax_harga['harga_max']?>" />
@@ -85,25 +85,29 @@
                     <div id="price_range"></div>
                 </div>  
 
-                <div class="list-group">
+                <div class="list-group mb-5">
                     <h3>Tipe</h3>
                     <div style="height: 180px; overflow-y: auto; overflow-x: hidden;">
                     <?php foreach($produk_types as $row) : ?>
                         <div class="list-group-item checkbox">
-                            <label> <input type="checkbox" class="common_selector type" value="<?php echo $row['tipe']; ?>" > <?php echo $row['tipe']; ?> </label>
+                            <label> 
+                                <input type="checkbox" class="common_selector type" value="<?php echo $row['tipe']; ?>" > 
+                                <?php echo $row['tipe']; ?> 
+                            </label>
                             <span class="badge bg-success rounded-pill"><?=$row["jumlah"]; ?></span>
                         </div>
                     <?php endforeach; ?>
                     </div>               
                 </div>
-                <div class="list-group">
+                <div class="list-group mb-5">
                     <h3>Urut berdasarkan</h3>
                     <div style="height: 180px; overflow-y: auto; overflow-x: hidden;">
                         <div class="list-group-item checkbox">
-                            <!-- <input type="hidden" name="check[0]" value="0" /> -->
-                            <!-- <label> <input type="checkbox" class="common_selector sort_view" name="check[0]" value="view" > View </label> -->
-                            <!-- <label> <input type="checkbox" class="common_selector sort_date" value="date" > Tanggal </label> -->
+                            <label> <input type="checkbox" class="common_selector sort_view_date" value="viewed DESC" > View Terbanyak</label>
                         </div>
+                        <div class="list-group-item checkbox"> 
+                            <label> <input type="checkbox" class="common_selector sort_view_date" value="tgl_ditambahkan DESC" > Tanggal Terbaru </label>
+                        </div> 
                     </div>               
                 </div>
 
@@ -138,14 +142,13 @@
                 var maximum_price = $('#hidden_maximum_price').val();
                 var type = get_filter('type');
                 var keyword = $("#keyword").val();
-                var view = $('.sort_view').val();
-                console.log(view);
+                var sort_by = get_filter('sort_view_date');
                 // var ram = get_filter('ram');
                 // var storage = get_filter('storage');
                 $.ajax({
                     url:"loadproduk.php",
                     method:"POST",
-                    data:{action:action, minimum_price:minimum_price, maximum_price:maximum_price, type:type, keyword: keyword},
+                    data:{action:action, minimum_price:minimum_price, maximum_price:maximum_price, type:type, keyword: keyword, sort_by:sort_by},
                     success:function(data){
                         $('.filter_data').html(data);
                     }
