@@ -25,7 +25,7 @@ foreach($keranjang as $row) :
 endforeach;
 
 // melakukan insert ke tabel pemesanan
-$query = "INSERT INTO pemesanan VALUES ('', NOW(), '$id_user', '$id_produk', '$qty', '$total', '$alamat')";
+$query = "INSERT INTO pemesanan VALUES (NULL, NOW(), '$id_user', '$id_produk', '$qty', '$total', '$alamat','1')";
 mysqli_query($koneksi, $query);
 
 // melakukan delete dari tabel keranjang

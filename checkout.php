@@ -88,7 +88,7 @@
                                         <td>Rp.<?=$row["harga"]; ?>,00</td>
                                     </tr>
                                     <tr>
-                                        <td>Jumlah*Harga</td>
+                                        <td>Total</td>
                                         <td>:</td>
                                         <td>Rp.<?= ($row["harga"] * $row["qty"]); ?>,00</td>
                                     </tr>
