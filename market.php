@@ -85,7 +85,7 @@
                     <?php foreach($produk_types as $row) : ?>
                         <div class="list-group-item checkbox">
                             <label> 
-                                <input type="checkbox" class="common_selector type" value="<?php echo $row['tipe']; ?>" > 
+                                <input type="checkbox" style="margin:0px; padding:0px; width:10px" class="common_selector type" value="<?php echo $row['tipe']; ?>" > 
                                 <?php echo $row['tipe']; ?> 
                             </label>
                             <span class="badge bg-success rounded-pill"><?=$row["jumlah"]; ?></span>
@@ -97,10 +97,13 @@
                     <h3>Urut berdasarkan</h3>
                     <div style="height: 180px; overflow-y: auto; overflow-x: hidden;">
                         <div class="list-group-item checkbox">
-                            <label> <input type="checkbox" class="common_selector sort_view_date" value="viewed DESC" > View Terbanyak</label>
+                            <label>
+                            <input type="checkbox"  style="margin:0px; padding:0px; width:10px" class="common_selector sort_view_date" value="viewed DESC" > 
+                            View Terbanyak
+                            </label>
                         </div>
                         <div class="list-group-item checkbox"> 
-                            <label> <input type="checkbox" class="common_selector sort_view_date" value="tgl_ditambahkan DESC" > Tanggal Terbaru </label>
+                            <label> <input type="checkbox" style="margin:0px; padding:0px; width:10px" class="common_selector sort_view_date" value="tgl_ditambahkan DESC" > Tanggal Terbaru </label>
                         </div> 
                     </div>               
                 </div>
