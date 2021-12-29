@@ -44,7 +44,8 @@ if(isset($_GET['mode'])){
     }
     elseif($_GET['mode'] == "cekpemesanan"){
         $id_user = $_GET['id_user'];
-        $query = "SELECT * FROM pemesanan WHERE id_user = '$id_user'";
+        $id_produk = $_GET['id_produk'];
+        $query = "SELECT * FROM pemesanan WHERE id_user = '$id_user' AND id_produk = '$id_produk'";
         mysqli_query($koneksi, $query);
         if(mysqli_affected_rows($koneksi)){
         }

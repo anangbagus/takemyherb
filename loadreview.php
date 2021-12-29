@@ -5,7 +5,6 @@ $id_produk = $_POST['id_produk'];
 $reviews = query("SELECT r.*, u.* FROM review r INNER JOIN user u ON u.id_user = r.id_user WHERE id_produk = $id_produk ORDER BY tgl_review DESC");
 ?>
 
-
 <div class="detail--review">
     <div class="detail--review--title mb-3">
         <h3>
@@ -14,37 +13,40 @@ $reviews = query("SELECT r.*, u.* FROM review r INNER JOIN user u ON u.id_user =
     </div>
     <table>
     <?php foreach($reviews as $review): ?>
-    <div class="detail--review--name">
-        <p>
-            <b><?= $review['nama_user']; ?></b>
-            pada <?= $review['tgl_review']; ?>
-        </p>
-    </div>
-    <div class="detail--review--opinion">
-        <p>
-            <?= $review['ulasan']; ?> 
-        </p>
-    </div>
-    <div class="detail--review--button">
-        <button id="show-replybox-<?= $review['id_review']; ?>" class="detail--button reply">Balas</button>
-        <?php if(cekreply($review['id_review']) != 0){ ?>
-            <button id="show-reply-<?= $review['id_review']; ?>" class="detail--button show-reply">Lihat Balasan</button>
-        <?php } ?>
-    </div>
-    <div>
+        <tr>
+            <td>
+                <div class="detail--review--name">
+                    <p>
+                        <b><?= $review['nama_user']; ?></b>
+                        pada <?= $review['tgl_review']; ?>
+                    </p>
+                </div>
+                <div class="detail--review--opinion">
+                    <p>
+                        <?= $review['ulasan']; ?> 
+                    </p>
+                </div>
+                <div class="detail--review--button">
+                    <button id="show-replybox-<?= $review['id_review']; ?>" class="detail--button reply">Balas</button>
+                    <?php if(cekreply($review['id_review']) != 0){ ?>
+                        <button id="show-reply-<?= $review['id_review']; ?>" class="detail--button show-reply">Lihat Balasan</button>
+                    <?php } ?>
+                </div>
+            </td>
+        </tr>
+        <!-- Show Replies -->
         <tr class="replies-<?= $review['id_review']; ?>" hidden>
-            <td colspan="4"></td>
+            <td></td>
         </tr>
         <!-- Reply Form -->
         <tr id="replybox-<?= $review['id_review']; ?>" hidden>
-            <td colspan="4">
+            <td>
                 <label>Berikan balasan anda:</label>
                 <br>
                 <input type="text" name="reply" id="text-reply-<?= $review['id_review']; ?>" placeholder="Reply...">
                 <button id="reply-<?= $review['id_review']; ?>" class="detail--button kirim-reply">Kirim</button>
             </td>
         </tr>
-    </div>
     <?php endforeach; ?>
     </table>
 </div>
@@ -56,7 +58,7 @@ $reviews = query("SELECT r.*, u.* FROM review r INNER JOIN user u ON u.id_user =
         $('.reply').click(function(){
             var id = $(this).attr('id');
             var no_id = id.replace("show-replybox-",'');
-            $('table').find('tr#replybox-'+no_id).show();
+            $('table').find('tr#replybox-'+no_id).removeAttr('hidden');
         });
         $('.kirim-reply').click(function(){
             var id = $(this).attr('id');
@@ -79,7 +81,7 @@ $reviews = query("SELECT r.*, u.* FROM review r INNER JOIN user u ON u.id_user =
         $('.show-reply').click(function(){
             var id = $(this).attr('id');
             var no_id = id.replace("show-reply-",'');
-            $('table').find('tr.replies-'+no_id).show();
+            $('table').find('tr.replies-'+no_id).removeAttr('hidden');
             $.ajax({
                 method:"POST",
                 url:"loadreply.php",

@@ -171,7 +171,7 @@ else{
                 $.ajax({
                     method: "GET",
                     url: "modelpesanan.php",
-                    data: {mode: "cekpemesanan", id_user: <?= $id_user; ?>},
+                    data: {mode: "cekpemesanan", id_user: <?= $id_user; ?>, id_produk: <?= $id_produk?>},
                     success: function(response){
                         var text = $("#review").val();
                         $.ajax({
